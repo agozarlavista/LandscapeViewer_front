@@ -6,10 +6,159 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/simon.delamarre.iml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.ovhconfig" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/graph/cartes.ai" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/back-card.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/carreau/carreau-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/coeur/coeur-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/joker.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/joker.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/pique/pique-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes-original/treffle/treffle-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/back-card.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/carreau/carreau-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/coeur/coeur-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/joker.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/joker.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/pique/pique-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-10.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-6.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-7.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-8.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-9.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-A.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-D.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-R.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/jeu-54-cartes/treffle/treffle-V.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/download_clic_and_walk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/logo_restos_du_coeur_clic_and_walk.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/slide_clicAndWalk_restosDuCoeur.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/step_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/step_2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/step_3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/Clic and Walk Partenaire des Restos du Coeur_files/step_4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/ground.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/plateau-ground.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/plateau-ground.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/plateau.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/player.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/images/plateau/player.psd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/cards.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/.DS_Store.bin" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/GETTING_STARTED.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/JavaScript_docs.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/TimelineLite.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/TimelineMax.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/TweenLite.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/TweenMax.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/easing/EasePack.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/jquery.gsap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/AttrPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/BezierPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/CSSPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/CSSRulePlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/ColorPropsPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/DirectionalRotationPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/EaselPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/KineticPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/RaphaelPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/RoundPropsPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/ScrollToPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/greensock/plugins/TextPlugin.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/jquery-1.9.1.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/js/president.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/apps/president/styles/president.css" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="www.iws" />
@@ -36,7 +185,7 @@
       <file leaf-file-name="database.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="46" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.8871287" vertical-offset="332" max-vertical-offset="1110">
+            <state line="52" column="46" selection-start="2714" selection-end="2714" vertical-scroll-proportion="2.2288556" vertical-offset="332" max-vertical-offset="1110">
               <folding />
             </state>
           </provider>
@@ -167,10 +316,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32891566" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.6951807" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -208,7 +357,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="46" selection-start="2714" selection-end="2714" vertical-scroll-proportion="0.8871287" vertical-offset="332" max-vertical-offset="1110">
+        <state line="52" column="46" selection-start="2714" selection-end="2714" vertical-scroll-proportion="2.2288556" vertical-offset="332" max-vertical-offset="1110">
           <folding />
         </state>
       </provider>
