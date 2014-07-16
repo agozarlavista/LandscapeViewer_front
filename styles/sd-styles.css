@@ -1,0 +1,190 @@
+html, body {
+    padding:0;
+    margin:0;
+    width:100%;
+    height:100%;
+    display:block;
+}
+.center{
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+    width:450px;
+    height:250px;
+    position:absolute;
+}
+.center-right{
+    top:0;
+    bottom:0;
+    right:0;
+    margin:auto;
+    width:450px;
+    height:250px;
+    position:absolute;
+}
+.globalCanvas{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+section{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+article{
+    width:100%;
+    height:100%;
+    position:relative;
+    float:left;
+    border-bottom:1px solid #E3E3E3;
+}
+#pageFooter{
+    background-color:#000;
+    width: 100%;
+    height: 0;
+    position: fixed;
+    float: left;
+    bottom:0;
+    z-index:99999;
+}
+.header{
+    width:100%;
+    height:100%;
+    background-color:#E41F1F;
+    color:#FFF;
+    position:fixed;
+    overflow:hidden;
+    z-index:99999;
+}
+.header ul{
+    position:absolute;
+    margin:0;
+    padding:0;
+    bottom:0;
+    width:100%;
+    border-top:1px solid #333;
+    background-color:#000;
+}
+.header li{
+    list-style: none;
+    margin:0;
+    padding:0;
+    padding:5px;
+    float:right;
+    line-height:40px;
+    height:40px;
+}
+.header li a{
+    text-decoration:none;
+}
+.header li a:hover{
+    color:#000;
+    text-decoration:none;
+}
+.header li:hover{
+    background-color:#E41F1F;
+    color:#000;
+}
+.header .text{
+    padding-left:20px;
+    padding-right:20px;
+}
+.contentPagination{
+    width:100%;
+    height:100%;
+}
+.content{
+    width:100%;
+    height:100%;
+}
+article footer {
+    position:absolute;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+    text-align:center;
+}
+article footer nav{
+    width:100%;
+    text-align:center;
+    left:0;
+    right:0;
+    height:40px;
+    margin:auto;
+}
+article footer nav ul{
+    margin:0;
+    padding:0;
+    width:100%;
+    height:40px;
+    text-align:center;
+}
+article footer nav ul li{
+    width:10px;
+    height:10px;
+    background-color:#000;
+    list-style:none;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+    margin:10px;
+    display:inline-block;
+    position:relative;
+}
+article footer nav .selection{
+    background-color:#E41F1F;
+}
+/* scroll Navigation */
+.scrollNavigationSelected{
+    background-color:#E41F1F;
+    color:#000;
+}
+.scrollNavigationSelected a::selection{
+    background-color:#E41F1F;
+    color:#000;
+}
+.animated{
+    -webkit-transition: color 500ms linear;
+    -moz-transition: color 500ms linear;
+    -o-transition: color 500ms linear;
+    -ms-transition: color 500ms linear;
+    transition: color 500ms linear;
+    -webkit-transition: background-color 500ms linear;
+    -moz-transition: background-color 500ms linear;
+    -o-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+
+
+
+/**/
+.contentSection{
+    height:100%;
+    white-space:nowrap;
+    width:auto;
+    position:relative;
+    overflow-x:scroll;
+    overflow-y: hidden;
+}
+.contentScroller{
+    height:100%;
+    display:flex;
+}
+.contentArticle{
+    width:100%;
+    height:100%;
+    float:left;
+    display: inline-flex;
+}
+#scrollCanvas{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:99999;
+}

@@ -48,9 +48,9 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'mysql51-114.perso';
-$db['default']['username'] = 'landscapp_prod';
-$db['default']['password'] = 'alloraki1';
+$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = 'yourpasswordhere';
 $db['default']['database'] = 'landscapp_prod';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

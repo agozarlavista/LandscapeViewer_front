@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'social';
+    src: url('fonts/socialiconsproset1-rounded-webfont.eot');
+    src: url('fonts/socialiconsproset1-rounded-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/socialiconsproset1-rounded-webfont.woff') format('woff'),
+    url('fonts/socialiconsproset1-rounded-webfont.ttf') format('truetype'),
+    url('fonts/socialiconsproset1-rounded-webfont.svg#social_icons_pro_set_1_-_roRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: "bold-font";
+    src: local("☺"),
+    url("fonts/font-black.woff") format("woff");
+}
+.bold{
+    font-family: bold-font;
+}
+@font-face {
+    font-family: "medium-font";
+    src: local("☺"),
+    url("fonts/font-medium.woff") format("woff");
+}
+.medium{
+    font-family: medium-font;
+}
+@font-face {
+    font-family: "light-font";
+    src: local("☺"),
+    url("fonts/font-light.woff") format("woff");
+}
+.light{
+    font-family: light-font;
+}
+.ultra-light{
+    font-family: "lato";
+    font-weight: 100;
+}
+.title{
+    font-size:30px;
+    padding:0;
+    margin:0;
+    line-height:30px;
+    text-align:right;
+}
+.button{
+    font-size:15px;
+    padding:0;
+    margin:0;
+    line-height:15px;
+    text-align:right;
+    color:#FFF;
+}
+.button a{
+    color:#FFF;
+}
+.subtitle{
+    font-size:20px;
+    padding:0;
+    margin:0;
+    line-height:20px;
+    text-align:right;
+}
+.viewSize{
+    font-size:10vw;
+    width:100%;
+    height:100%;
+}
+
+
+
+.social{
+    font-size:40px;
+    font-family: "social";
+    color:#333;
+}
+.social:hover{
+    background-color:#E5419A;
+    color:#000;
+}
+.social a{
+    color:#333;
+    text-decoration: none;
+}
+.social a:hover{
+    color:#000;
+}
