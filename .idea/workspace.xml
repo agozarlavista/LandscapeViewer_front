@@ -2,21 +2,131 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60df7640-299d-4da3-a67a-5c531e093647" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_200.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_75.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_200.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_50.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_75.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/_header.php" afterPath="$PROJECT_DIR$/application/views/_header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/landscape/admin.js" afterPath="$PROJECT_DIR$/js/landscape/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/sources_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/sources_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/types_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/types_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/urls_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/urls_model.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/1/8/3/1183758904.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/1/8/3/1183758904_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/1/8/3/1183758904_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/1/8/3/1183758904_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/1/8/3/1183758904_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/3/7/0/1370788556.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/3/7/0/1370788556_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/3/7/0/1370788556_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/3/7/0/1370788556_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/3/7/0/1370788556_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/7/7/8/177806196.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/7/7/8/177806196_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/7/7/8/177806196_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/7/7/8/177806196_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/7/7/8/177806196_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/8/0/1/1801803428.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/8/0/1/1801803428_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/8/0/1/1801803428_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/8/0/1/1801803428_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/1/8/0/1/1801803428_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/2/2/6/1/226104860.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/2/0/5/3205887204.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/2/0/5/3205887204_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/2/0/5/3205887204_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/2/0/5/3205887204_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/2/0/5/3205887204_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/4/5/8/3458842928.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/4/5/8/3458842928_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/4/5/8/3458842928_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/4/5/8/3458842928_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/3/4/5/8/3458842928_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/1/3/2/4132237927.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/1/3/2/4132237927_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/1/3/2/4132237927_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/1/3/2/4132237927_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/1/3/2/4132237927_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/2/5/1/4251688239.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/2/5/1/4251688239_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/2/5/1/4251688239_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/2/5/1/4251688239_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/2/5/1/4251688239_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/5/6/2/4562808694.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/5/6/2/4562808694_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/5/6/2/4562808694_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/5/6/2/4562808694_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/4/5/6/2/4562808694_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/4/9/2/5492458879.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/4/9/2/5492458879_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/4/9/2/5492458879_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/4/9/2/5492458879_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/4/9/2/5492458879_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/5/9/2/559226595.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/5/9/2/559226595_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/5/9/2/559226595_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/5/9/2/559226595_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/5/9/2/559226595_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/6/2/0/5620608734.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/6/2/0/5620608734_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/6/2/0/5620608734_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/6/2/0/5620608734_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/6/2/0/5620608734_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/7/3/7/5737728434.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/7/3/7/5737728434_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/7/3/7/5737728434_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/7/3/7/5737728434_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/5/7/3/7/5737728434_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/5/6/3/6563210729.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/5/6/3/6563210729_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/5/6/3/6563210729_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/5/6/3/6563210729_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/5/6/3/6563210729_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/6/0/6/6606178446.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/6/0/6/6606178446_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/6/0/6/6606178446_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/6/0/6/6606178446_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/6/6/0/6/6606178446_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/6/3/7163505950.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/6/3/7163505950_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/6/3/7163505950_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/6/3/7163505950_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/1/6/3/7163505950_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/1/9/771931912.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/1/9/771931912_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/1/9/771931912_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/1/9/771931912_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/1/9/771931912_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/2/0/772037692.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/2/0/772037692_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/2/0/772037692_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/2/0/772037692_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/7/2/0/772037692_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/8/8/8/7888194560.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/8/8/8/7888194560_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/8/8/8/7888194560_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/8/8/8/7888194560_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/7/8/8/8/7888194560_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/8/5/1/4/8514233385.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/8/5/1/4/8514233385_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/8/5/1/4/8514233385_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/8/5/1/4/8514233385_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/8/5/1/4/8514233385_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/1/1/941145326.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/1/1/941145326_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/1/1/941145326_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/1/1/941145326_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/1/1/941145326_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/7/9/9479332934.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/7/9/9479332934_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/7/9/9479332934_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/7/9/9479332934_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/4/7/9/9479332934_75.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/7/0/5/9705999903.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/7/0/5/9705999903_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/7/0/5/9705999903_200.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/7/0/5/9705999903_50.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/uploads/9/7/0/5/9705999903_75.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="www.iws" />
@@ -106,7 +216,7 @@
       <file leaf-file-name="admin.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/landscape/admin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.5833333" vertical-offset="3305" max-vertical-offset="5205">
+            <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.57494867" vertical-offset="3305" max-vertical-offset="5205">
               <folding />
             </state>
           </provider>
@@ -439,15 +549,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3048193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3048193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31325302" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31325302" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -849,7 +959,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/landscape/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.5833333" vertical-offset="3305" max-vertical-offset="5205">
+        <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.57494867" vertical-offset="3305" max-vertical-offset="5205">
           <folding />
         </state>
       </provider>
