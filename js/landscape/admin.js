@@ -16,11 +16,19 @@ var admin = {
 		$('#column_type #add_button').bind('click', function(){
 			self.add_type_form();
 		});
+        $('#column_type #add #icon').on('change', function(event){
+            self.file_upload(event.target.files, function(e){
+                var response = JSON.parse(e);
+                if(response.code && response.code == 200)
+                    $('#column_type #add #image_id').html(response.id);
+            });
+            self.readFile(this, $('#column_type #add .preview'));
+        });
 		$('#column_type #add .submit_button').bind('click', function(){
 			var params = {
 				"label" : $('#column_type #add #label').val(),
 				"description" : $('#column_type #add #description').val(),
-				"icon" : $('#column_type #add #icon').val()
+                "icon" : parseInt($('#column_type #add #image_id').html())
 			}
 			utilities.load_service(
 				"feed/add_type",
@@ -30,12 +38,20 @@ var admin = {
 				}
 			);
 		});
+        $('#column_type #edit #icon').on('change', function(e){
+            self.file_upload(event.target.files, function(e){
+                var response = JSON.parse(e);
+                if(response.code && response.code == 200)
+                    $('#column_type #edit #image_id').html(response.id);
+            });
+            self.readFile(this, $('#column_type #edit .preview'));
+        });
 		$('#column_type #edit #edit_button').bind('click', function(){
             var params = {
                 "id" : self.types_list[self.type_id].id,
                 "label" : $('#column_type #edit #label').val(),
                 "description" : $('#column_type #edit #description').val(),
-                "icon" : $('#column_type #edit #icon').val()
+                "icon" : parseInt($('#column_type #edit #image_id').html())
             }
 			utilities.load_service(
 				"feed/edit_type",
@@ -63,13 +79,21 @@ var admin = {
 		$('#column_source #add_button').bind('click', function(){
 			self.add_source_form();
 		});
+
+        $('#column_source #add #icon').on('change', function(e){
+            self.file_upload(event.target.files, function(e){
+                var response = JSON.parse(e);
+                if(response.code && response.code == 200)
+                    $('#column_source #add #image_id').html(response.id);
+            });
+            self.readFile(this, $('#column_source #add .preview'));
+        });
 		$('#column_source #add .submit_button').bind('click', function(){
-            //alert(JSON.stringify(self.types_list));
-			var params = {
+            var params = {
 				"id_type" : self.types_list[self.type_id].id,
 				"label" : $('#column_source #add #label').val(),
 				"description" : $('#column_source #add #description').val(),
-				"icon" : $('#column_source #add #icon').val()
+				"icon" : parseInt($('#column_source #add #image_id').html())
 			}
 			utilities.load_service(
 				"feed/add_source",
@@ -79,13 +103,21 @@ var admin = {
 				}
 			);
 		});
+        $('#column_source #edit #icon').on('change', function(e){
+            self.file_upload(event.target.files, function(e){
+                var response = JSON.parse(e);
+                if(response.code && response.code == 200)
+                    $('#column_source #edit #image_id').html(response.id);
+            });
+            self.readFile(this, $('#column_source #edit .preview'));
+        });
 		$('#column_source #edit #edit_button').bind('click', function(){
-			var params = {
+            var params = {
                 "id" : self.sources_list[self.source_id].id,
 				"type_id" : self.types_list[self.type_id].id,
 				"label" : $('#column_source #edit #label').val(),
 				"description" : $('#column_source #edit #description').val(),
-				"icon" : $('#column_source #edit #icon').val()
+                "icon" : parseInt($('#column_source #edit #image_id').html())
 			}
 			utilities.load_service(
 				"feed/edit_source",
@@ -108,9 +140,6 @@ var admin = {
 				}
 			);
 		});
-		
-		
-		
 		$('#column_url #add_button').bind('click', function(){
 			self.add_url_form();
 		});
@@ -159,6 +188,9 @@ var admin = {
 	add_type_form : function(){
 		$('#column_type #add').css('display', 'block');
 		$('#column_type #edit').css('display', 'none');
+        $('#column_type #add #label').val('');
+        $('#column_type #add #description').val('');
+        $('#column_type #add #image_id').html('');
 	},
 	add_source_form : function(){
 		$('#column_source #add').css('display', 'block');
@@ -173,12 +205,16 @@ var admin = {
 		$('#column_type #add').css('display', 'none');
 		$('#column_type #edit #label').val(this.types_list[this.type_id].label);
 		$('#column_type #edit #description').val(this.types_list[this.type_id].description);
+        $('#column_type #edit #image_id').html(this.types_list[this.type_id].icon);
+        $('#column_type #edit .preview').attr("src", this.types_list[this.type_id].url);
 	},
 	edit_source_form : function(){
 		$('#column_source #edit').css('display', 'block');
 		$('#column_source #add').css('display', 'none');
 		$('#column_source #edit #label').val(this.sources_list[this.source_id].label);
 		$('#column_source #edit #description').val(this.sources_list[this.source_id].description);
+        $('#column_source #edit #image_id').html(this.sources_list[this.source_id].icon);
+        $('#column_source #edit .preview').attr("src", this.sources_list[this.source_id].url);
 	},
 	edit_url_form : function(){
 		$('#column_url #edit').css('display', 'block');
@@ -194,8 +230,7 @@ var admin = {
 			},
 			function(result){
 				self.types_list = JSON.parse(result);
-                //alert(self.types_list);
-				$('#column_type ul').html('');
+                $('#column_type ul').html('');
 				for(var i=0; i<self.types_list.length; i++){
 					$('#column_type ul').append('<li id="type_'+i+'" data-id="'+self.types_list[i]['id']+'">'+self.types_list[i]['label']+'<div class="right_arrow"></div></li>');
 					$('#type_'+i).bind('click', function(){
@@ -263,7 +298,42 @@ var admin = {
 			}
 		);
 	},
-    file_upload : function(source){
+    readFile : function(input, target){
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
+            reader.onload = function (e) {
+                target.attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    },
+    file_upload : function(files, callBack){
+        var fileInput = files[0];
+        var data = new FormData();
+
+        for(var i = 0; i < files.length; ++i){
+            data.append('file[]',files[i]);
+        }
+        $.ajax({
+            type:'POST',
+            method:'POST',/* for newest version of jQuery */
+            url:'feed/file_upload',
+            headers:{'Cache-Control':'no-cache'},
+            data:data,
+            contentType:false,
+            processData:false,
+            success: function(response){
+                var return_data = response;
+                callBack(return_data);
+                //if(return_data !== 'success') {
+                    //failed();
+                //}
+                //else if(return_data == 'success') {
+                    //success();
+                //}
+            }
+        });
     }
 }

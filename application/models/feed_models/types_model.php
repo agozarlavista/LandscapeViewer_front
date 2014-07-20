@@ -8,7 +8,12 @@ class Types_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
-		$this->db->insert('feed_types', $options);
+        $data = array(
+            'label' => strtolower($options['label']),
+            'description' => strtolower($options['description']),
+            'icon' => $options['icon']
+        );
+		$this->db->insert('feed_types', $data);
 		return  $this->db->insert_id();
     }
 	public function remove($options){
@@ -24,8 +29,8 @@ class Types_Model extends CI_Model{
         if(!isset($options['id']))
             return false;
         $data = array(
-            'label' => $options['label'],
-            'description' => $options['description'],
+            'label' => strtolower($options['label']),
+            'description' => strtolower($options['description']),
             'icon' => $options['icon']
         );
         $this->db->where('id', $options['id']);
@@ -33,7 +38,18 @@ class Types_Model extends CI_Model{
         return true;
     }
 	public function get($options){
-		$query = $this->db->get('feed_types');
+        $this->db->select('feed_types.id, feed_types.label, feed_types.description, feed_types.icon, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height');
+        $this->db->from('feed_types');
+        $this->db->join('feed_media', 'feed_media.id = feed_types.icon');
+
+        $query = $this->db->get();
+        $this->db->last_query();
         return $query->result();
+
+        /*$this->db->select('id, label, description, icon');
+        $this->db->from('feed_types');
+        $this->db->join('feed_media', 'id = feed_types.icon', 'left');
+		$query = $this->db->get();
+        */
     }
 }

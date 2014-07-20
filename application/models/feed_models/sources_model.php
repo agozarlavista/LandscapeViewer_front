@@ -8,7 +8,13 @@ class Sources_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
-		$this->db->insert('feed_sources', $options);
+        $data = array(
+            'id_type' => $options['type_id'],
+            'label' => strtolower($options['label']),
+            'description' => strtolower($options['description']),
+            'icon' => $options['icon']
+        );
+		$this->db->insert('feed_sources', $data);
         $str = $this->db->last_query();
 		return  $this->db->insert_id();
     }
@@ -31,8 +37,8 @@ class Sources_Model extends CI_Model{
             return false;
         $data = array(
             'id_type' => $options['type_id'],
-            'label' => $options['label'],
-            'description' => $options['description'],
+            'label' => strtolower($options['label']),
+            'description' => strtolower($options['description']),
             'icon' => $options['icon']
         );
         $this->db->where("id", $options['id']);
@@ -41,12 +47,21 @@ class Sources_Model extends CI_Model{
         return true;
     }
 	public function get($options){
+        $this->db->select('feed_sources.id, feed_sources.label, feed_sources.description, feed_sources.icon, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height');
+        $this->db->from('feed_sources');
         if(isset($options['type_id']))
             $this->db->where('id_type', $options['type_id']);
 
-		//$this->db->where('type_id', $options['type_id']);
-		$query = $this->db->get('feed_sources');
-        $str = $this->db->last_query();
-		return $query->result();
+        $this->db->join('feed_media', 'feed_media.id = feed_sources.icon', 'left');
+
+        $query = $this->db->get();
+        $this->db->last_query();
+        return $query->result();
+
+
+        //$this->db->where('type_id', $options['type_id']);
+		//$query = $this->db->get('feed_sources');
+        //$str = $this->db->last_query();
+		//return $query->result();
     }
 }

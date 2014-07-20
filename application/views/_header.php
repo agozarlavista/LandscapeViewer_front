@@ -13,18 +13,16 @@
    <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
 
     <!-- FILE UPLOAD PLUGIN -->
-    <!-- Google web fonts -->
+    <!-- Google web fonts
     <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
-    <!-- The main CSS file -->
-    <link href="<?php echo base_url(); ?>plugins/file_upload/assets/css/style.css" rel="stylesheet" />
-    <!-- END FILE UPLOAD PLUGIN -->
+    <link href="plugins/file_upload/assets/css/style.css" rel="stylesheet" />
+    END FILE UPLOAD PLUGIN -->
 
 
 </head>
 <body>
 <header class="header">
-	<ul>
-	<li class="animated">Refresh Datas</li>
-	<li class="animated">Sources</li>
-	</ul>
+	<a href="admin"><div class="light_button right">Adress manager</div></a>
+    <a href="admin"><div class="light_button right">Media manager</div></a>
+    <a href="admin"><div class="light_button right">Tags manager</div></a>
 </header>
