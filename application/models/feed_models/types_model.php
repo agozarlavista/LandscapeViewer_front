@@ -8,6 +8,12 @@ class Types_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
+        $this->db->where('label', strtolower($options['label']));
+        $exist = $this->db->get('feed_types');
+        if(count($exist->result()) > 0){
+            return "allready exist";
+        }
+
         $data = array(
             'label' => strtolower($options['label']),
             'description' => strtolower($options['description']),

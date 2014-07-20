@@ -8,8 +8,14 @@ class Sources_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
+        $this->db->where('label', strtolower($options['label']));
+        $exist = $this->db->get('feed_sources');
+        if(count($exist->result()) > 0){
+            return "allready exist";
+        }
+
         $data = array(
-            'id_type' => $options['type_id'],
+            'id_type' => $options['id_type'],
             'label' => strtolower($options['label']),
             'description' => strtolower($options['description']),
             'icon' => $options['icon']

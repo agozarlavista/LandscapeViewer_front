@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60df7640-299d-4da3-a67a-5c531e093647" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/ajaxfilupload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/plugins/drop_zone/dropZone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery.form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/feed_models/medias_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/_footer.php" afterPath="$PROJECT_DIR$/application/views/_footer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_200.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_50.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/2/2/6/1/226104860_75.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_100.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_200.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_50.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploads/7/1/5/9/7159017650_75.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/_header.php" afterPath="$PROJECT_DIR$/application/views/_header.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/landscape/admin.js" afterPath="$PROJECT_DIR$/js/landscape/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin_view.php" afterPath="$PROJECT_DIR$/application/views/admin_view.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/feed_api_v1.php" afterPath="$PROJECT_DIR$/application/controllers/feed_api_v1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/lv-admin-styles.css" afterPath="$PROJECT_DIR$/styles/lv-admin-styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/styles/lv-styles.css" afterPath="$PROJECT_DIR$/styles/lv-styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/sources_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/sources_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/types_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/types_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/landscape/utilities.js" afterPath="$PROJECT_DIR$/js/landscape/utilities.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/feed_models/urls_model.php" afterPath="$PROJECT_DIR$/application/models/feed_models/urls_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="www.iws" />
@@ -39,6 +40,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="feed_api_v1.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/feed_api_v1.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="48" column="0" selection-start="1359" selection-end="1359" vertical-scroll-proportion="-7.1666665" vertical-offset="548" max-vertical-offset="4215">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeIgniter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="387" column="36" selection-start="11071" selection-end="11071" vertical-scroll-proportion="-9.083333" vertical-offset="5587" max-vertical-offset="6105">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_header.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/_header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="33" selection-start="357" selection-end="357" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="510">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="medias_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/feed_models/medias_model.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,10 +76,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sources_model.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="sources_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/feed_models/sources_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="53" selection-start="355" selection-end="355" vertical-scroll-proportion="0.35643566" vertical-offset="0" max-vertical-offset="1080">
+            <state line="13" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="-7.0" vertical-offset="27" max-vertical-offset="1170">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/feed_models/urls_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="32" selection-start="194" selection-end="194" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="885">
               <folding />
             </state>
           </provider>
@@ -60,7 +97,16 @@
       <file leaf-file-name="types_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/feed_models/types_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="47" selection-start="465" selection-end="465" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="900">
+            <state line="13" column="27" selection-start="412" selection-end="412" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="990">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/landscape/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.5833333" vertical-offset="3305" max-vertical-offset="5205">
               <folding />
             </state>
           </provider>
@@ -82,7 +128,6 @@
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin.php" />
-        <option value="$PROJECT_DIR$/application/models/feed_models/urls_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/file_upload.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/plugins/file_upload/assets/css/style.css" />
@@ -97,10 +142,11 @@
         <option value="$PROJECT_DIR$/application/controllers/feed_api_v1.php" />
         <option value="$PROJECT_DIR$/application/views/admin_view.php" />
         <option value="$PROJECT_DIR$/styles/lv-admin-styles.css" />
-        <option value="$PROJECT_DIR$/js/landscape/admin.js" />
-        <option value="$PROJECT_DIR$/application/views/_header.php" />
         <option value="$PROJECT_DIR$/application/models/feed_models/types_model.php" />
+        <option value="$PROJECT_DIR$/application/models/feed_models/urls_model.php" />
         <option value="$PROJECT_DIR$/application/models/feed_models/sources_model.php" />
+        <option value="$PROJECT_DIR$/application/views/_header.php" />
+        <option value="$PROJECT_DIR$/js/landscape/admin.js" />
       </list>
     </option>
   </component>
@@ -393,14 +439,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3048193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32891566" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25679544" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31325302" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -430,7 +476,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="33" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/models/feed_models/sources_model.php</url>
+          <line>10</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="34" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -597,13 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/feed_models/urls_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="733" selection-end="733" vertical-scroll-proportion="-2.64" vertical-offset="168" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/file_upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="423">
@@ -731,34 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/feed_api_v1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1601" selection-end="1601" vertical-scroll-proportion="-3.28" vertical-offset="676" max-vertical-offset="4215">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="384" column="8" selection-start="10949" selection-end="10949" vertical-scroll-proportion="-6.25" vertical-offset="5610" max-vertical-offset="6105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/_header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="56" selection-start="1216" selection-end="1216" vertical-scroll-proportion="-16.25" vertical-offset="0" max-vertical-offset="495">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/landscape/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="11" selection-start="410" selection-end="410" vertical-scroll-proportion="0.50695825" vertical-offset="0" max-vertical-offset="5160">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin_view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="141" column="33" selection-start="3993" selection-end="3993" vertical-scroll-proportion="0.21814671" vertical-offset="2002" max-vertical-offset="2520">
@@ -789,14 +807,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/feed_models/types_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="47" selection-start="465" selection-end="465" vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="900">
+        <state line="13" column="27" selection-start="412" selection-end="412" vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/feed_models/urls_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="32" selection-start="194" selection-end="194" vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="885">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/feed_models/sources_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="53" selection-start="355" selection-end="355" vertical-scroll-proportion="0.35643566" vertical-offset="0" max-vertical-offset="1080">
+        <state line="13" column="0" selection-start="389" selection-end="389" vertical-scroll-proportion="-7.0" vertical-offset="27" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="387" column="36" selection-start="11071" selection-end="11071" vertical-scroll-proportion="-9.083333" vertical-offset="5587" max-vertical-offset="6105">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/_header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="33" selection-start="357" selection-end="357" vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="510">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/feed_api_v1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1359" selection-end="1359" vertical-scroll-proportion="-7.1666665" vertical-offset="548" max-vertical-offset="4215">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/landscape/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="46" selection-start="8327" selection-end="8327" vertical-scroll-proportion="0.5833333" vertical-offset="3305" max-vertical-offset="5205">
           <folding />
         </state>
       </provider>

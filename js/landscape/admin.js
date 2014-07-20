@@ -240,6 +240,9 @@ var admin = {
 						self.edit_type_form();
 						
 						$('#column_source').css('display', 'table');
+                        $('#column_source #add').css('display', 'none');
+                        $('#column_source #edit').css('display', 'none');
+                        $('#column_url').css('display', 'none');
 						self.refresh_sources();
 					});
 				}

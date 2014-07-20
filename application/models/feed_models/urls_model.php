@@ -8,7 +8,18 @@ class Urls_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
-		$this->db->insert('feed_urls', $options);
+        $this->db->where('url', strtolower($options['url']));
+        $exist = $this->db->get('feed_urls');
+        if(count($exist->result()) > 0){
+            return "allready exist";
+        }
+
+        $data = array(
+            'id_type' => $options['type_id'],
+            'id_source' => $options['source_id'],
+            'url' => $options['url']
+        );
+		$this->db->insert('feed_urls', $data);
 		return  $this->db->insert_id();
     }
 	public function remove($options){

@@ -25,4 +25,5 @@
 	<a href="admin"><div class="light_button right">Adress manager</div></a>
     <a href="admin"><div class="light_button right">Media manager</div></a>
     <a href="admin"><div class="light_button right">Tags manager</div></a>
+    <a href="admin"><div class="light_button right">Refresh all articles</div></a>
 </header>
