@@ -19,6 +19,8 @@ class admin extends CI_Controller {
 	 */
 	public function index()
 	{
+        $this->load->helper('url');
+        $data['rootURL'] = base_url();
 		$this->load->view('_header');
 		$this->load->view('admin_view');
 		$this->load->view('_footer');

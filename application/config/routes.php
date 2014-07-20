@@ -44,15 +44,20 @@ $route['feed'] = "feed_api_v1";
 
 $route['feed/add_type'] = "feed_api_v1/add_type";
 $route['feed/edit_type'] = "feed_api_v1/edit_type";
+$route['feed/remove_type'] = "feed_api_v1/remove_type";
 $route['feed/get_types_list'] = "feed_api_v1/get_types_list";
 
 $route['feed/add_source'] = "feed_api_v1/add_source";
 $route['feed/edit_source'] = "feed_api_v1/edit_source";
+$route['feed/remove_source'] = "feed_api_v1/remove_source";
 $route['feed/get_sources_list'] = "feed_api_v1/get_sources_list";
 
 $route['feed/add_url'] = "feed_api_v1/add_url";
 $route['feed/edit_url'] = "feed_api_v1/edit_url";
+$route['feed/remove_url'] = "feed_api_v1/remove_url";
 $route['feed/get_urls_list'] = "feed_api_v1/get_urls_list";
+
+$route['feed/file_upload'] = "feed_api_v1/file_upload";
 
 $route['404_override'] = '';
 

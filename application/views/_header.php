@@ -9,8 +9,17 @@
    <meta name="apple-mobile-web-app-capable" content="yes">
    <meta name="apple-mobile-web-app-status-bar-style" content="black">
    <meta name="MobileOptimized" content="320">
-   <link href="./styles/lv-admin-styles.css" rel="stylesheet" type="text/css"/>
-   <link href="./styles/lv-styles.css" rel="stylesheet" type="text/css"/>
+   <link href="<?php echo base_url(); ?>styles/lv-admin-styles.css" rel="stylesheet" type="text/css"/>
+   <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
+
+    <!-- FILE UPLOAD PLUGIN -->
+    <!-- Google web fonts -->
+    <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+    <!-- The main CSS file -->
+    <link href="<?php echo base_url(); ?>plugins/file_upload/assets/css/style.css" rel="stylesheet" />
+    <!-- END FILE UPLOAD PLUGIN -->
+
+
 </head>
 <body>
 <header class="header">

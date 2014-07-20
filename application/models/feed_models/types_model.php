@@ -8,26 +8,32 @@ class Types_Model extends CI_Model{
 		$this->load->database();
 	}
 	public function add($options){
-		$this->db->insert('feed_types', array('id' => intval($id));
+		$this->db->insert('feed_types', $options);
 		return  $this->db->insert_id();
     }
 	public function remove($options){
-		if (isset($options['id']) && is_numeric($options['id']))
-            return $this->db->delete('feed_types', array('id' => intval($options)));
+		if (isset($options['id'])){
+            $this->db->delete('feed_types', array('id' => intval($options['id'])));
+            $this->load->model('feed_models/sources_model');
+            $this->sources_model->remove(Array('id_type'=>$options['id']));
+        }
+        $str = $this->db->last_query();
         return false;
     }
 	public function update($options){
-		if(isset($options['label']))
-			$this->db->set('label', $options['label']);
-		if(isset($options['description']))
-			$this->db->set('description', $options['description']);
-		if(isset($options['icon']))
-			$this->db->set('icon', $options['icon']);
-		$query = $this->db->update('feed_types');
-		return $query->result();
+        if(!isset($options['id']))
+            return false;
+        $data = array(
+            'label' => $options['label'],
+            'description' => $options['description'],
+            'icon' => $options['icon']
+        );
+        $this->db->where('id', $options['id']);
+        $this->db->update('feed_types', $data);
+        return true;
     }
 	public function get($options){
 		$query = $this->db->get('feed_types');
-		return $query->result();
+        return $query->result();
     }
 }
