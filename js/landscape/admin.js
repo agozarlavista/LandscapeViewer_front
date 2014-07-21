@@ -232,7 +232,7 @@ var admin = {
 				self.types_list = JSON.parse(result);
                 $('#column_type ul').html('');
 				for(var i=0; i<self.types_list.length; i++){
-					$('#column_type ul').append('<li id="type_'+i+'" data-id="'+self.types_list[i]['id']+'">'+self.types_list[i]['label']+'<div class="right_arrow"></div></li>');
+					$('#column_type ul').append('<li id="type_'+i+'" data-id="'+self.types_list[i]['id']+'">'+self.short(self.types_list[i]['label'])+'<div class="right_arrow"></div></li>');
 					$('#type_'+i).bind('click', function(){
 						$('#column_type li').removeClass('selected');
 						self.type_id = $(this).attr('id').replace('type_', '');
@@ -261,7 +261,7 @@ var admin = {
 				self.sources_list = JSON.parse(result);
 				$('#column_source ul').html('');
 				for(var i=0; i<self.sources_list.length; i++){
-					$('#column_source ul').append('<li id="source_'+i+'" data-id="'+self.sources_list[i]['id']+'">'+self.sources_list[i]['label']+'<div class="right_arrow"></div></li>');
+					$('#column_source ul').append('<li id="source_'+i+'" data-id="'+self.sources_list[i]['id']+'">'+self.short(self.sources_list[i]['label'])+'<div class="right_arrow"></div></li>');
 					$('#source_'+i).bind('click', function(){
 						$('#column_source li').removeClass('selected');
 						self.source_id = $(this).attr('id').replace('source_', '');
@@ -288,7 +288,7 @@ var admin = {
 				self.urls_list = JSON.parse(result);
                 $('#column_url ul').html('');
                 for(var i=0; i<self.urls_list.length; i++){
-                    $('#column_url ul').append('<li id="url_'+i+'" data-id="'+self.urls_list[i]['id']+'">'+self.urls_list[i]['url']+'<div class="right_arrow"></div></li>');
+                    $('#column_url ul').append('<li id="url_'+i+'" data-id="'+self.urls_list[i]['id']+'">'+self.short(self.urls_list[i]['url'])+'<div class="right_arrow"></div></li>');
                     $('#url_'+i).bind('click', function(){
                         $('#column_url li').removeClass('selected');
                         self.url_id = $(this).attr('id').replace('url_', '');
@@ -338,5 +338,12 @@ var admin = {
                 //}
             }
         });
+    },
+    short : function(str){
+        if(str.length > 20)
+            str = str.substr(0,20)+"...";
+        return str;
     }
 }
+
+admin.init();

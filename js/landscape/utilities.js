@@ -1,5 +1,5 @@
 var utilities = {
-	defaultUri : "./",
+	defaultUri : "http://localhost/~simondelamarre/LV/www/index.php/",
 	init : function(params){
         //this.defaultUri = params['baseURL'];
 	},

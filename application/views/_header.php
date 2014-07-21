@@ -11,7 +11,13 @@
    <meta name="MobileOptimized" content="320">
    <link href="<?php echo base_url(); ?>styles/lv-admin-styles.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
-
+    <?php
+        if (isset($css)) {
+            foreach($css as $file_css) {
+                echo '<link href="'.base_url().$file_css.'" rel="stylesheet" type="text/css" />'."\n";
+            }
+        }
+    ?>
     <!-- FILE UPLOAD PLUGIN -->
     <!-- Google web fonts
     <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />

@@ -46,7 +46,7 @@ class Types_Model extends CI_Model{
 	public function get($options){
         $this->db->select('feed_types.id, feed_types.label, feed_types.description, feed_types.icon, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height');
         $this->db->from('feed_types');
-        $this->db->join('feed_media', 'feed_media.id = feed_types.icon');
+        $this->db->join('feed_media', 'feed_media.id = feed_types.icon', 'left');
 
         $query = $this->db->get();
         $this->db->last_query();

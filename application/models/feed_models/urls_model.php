@@ -15,8 +15,8 @@ class Urls_Model extends CI_Model{
         }
 
         $data = array(
-            'id_type' => $options['type_id'],
-            'id_source' => $options['source_id'],
+            'id_type' => $options['id_type'],
+            'id_source' => $options['id_source'],
             'url' => $options['url']
         );
 		$this->db->insert('feed_urls', $data);

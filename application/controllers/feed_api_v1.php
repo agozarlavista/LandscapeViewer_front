@@ -120,7 +120,7 @@ class Feed_Api_V1 extends CI_Controller {
                 $i = imagecreatefromgif($img);
                 break;
             case 2:
-                $i = imagecreatefromjpg($img);
+                $i = imagecreatefromjpeg($img);
                 break;
             case 3:
                 $i = imagecreatefrompng($img);
@@ -195,7 +195,7 @@ class Feed_Api_V1 extends CI_Controller {
 
             $File_Name          = strtolower($_FILES['file']['name'][0]);
             $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
-            $Random_Number      = rand(0, 9999999999); //Random number to be added to name.
+            $Random_Number      = time().uniqid(); //Random number to be added to name.
             $NewFileName 		= $Random_Number.$File_Ext; //new file name
 
             $dirArray = str_split($NewFileName, 1);
@@ -221,10 +221,10 @@ class Feed_Api_V1 extends CI_Controller {
                 $this->load->model('feed_models/medias_model');
                 $result = $this->medias_model->add($options);
 
-                $this->save_image_thumb($UploadDirectory.$NewFileName, 50);
-                $this->save_image_thumb($UploadDirectory.$NewFileName, 75);
-                $this->save_image_thumb($UploadDirectory.$NewFileName, 100);
-                $this->save_image_thumb($UploadDirectory.$NewFileName, 200);
+                $this->save_image_thumb($UploadDirectory.$NewFileName, 50, $NewFileName);
+                $this->save_image_thumb($UploadDirectory.$NewFileName, 75, $NewFileName);
+                $this->save_image_thumb($UploadDirectory.$NewFileName, 100, $NewFileName);
+                $this->save_image_thumb($UploadDirectory.$NewFileName, 200, $NewFileName);
                 die(json_encode(Array("code"=>200, "id"=>$result)));
             }else{
                 die('error uploading File!');
@@ -236,7 +236,40 @@ class Feed_Api_V1 extends CI_Controller {
             die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
         }
     }
-    public function save_image_thumb($img, $w){
+    public function save_image_from_web($options = null){
+        $options = $this->input->post();
+        //$options
+        if(!isset($options['image_url'])){
+            echo "you must define image uri";
+            return "error";
+        }
+
+        $img_to_upload = $options['image_url'];
+
+        $imageName = time().uniqid();
+        //die();
+        //http://www.zeutch.com/wp-content/uploads/2014/07/Comfort_Food_Jessica_Dance_001.jpg
+        $this->save_image_thumb($img_to_upload, 400, $imageName);
+        $this->save_image_thumb($img_to_upload, 250, $imageName);
+        $this->save_image_thumb($img_to_upload, 100, $imageName);
+
+        //create feed_media dominante width height
+        $dirArray = str_split($imageName, 1);
+        $UploadDirectory = "./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/";
+        $realURI = $UploadDirectory.$imageName.'_400.png';
+        $options = Array(
+            "url" => $realURI,
+            "dominante" => 'rgb('.$this->get_dominant($realURI).')',
+            "width" => $this->get_image_size($realURI)['width'],
+            "height" => $this->get_image_size($realURI)['height']
+        );
+        $this->load->model('feed_models/medias_model');
+        $result = $this->medias_model->add($options);
+        //$response = json_encode(Array("code"=>200, "id"=>$result));
+        //echo $response;
+        die(json_encode(Array("code"=>200, "id"=>$result)));
+    }
+    public function save_image_thumb($img, $w, $imgName){
         $filename = $img;
         header('Content-Type: image/jpeg');
         $img_name = basename($img);
@@ -255,7 +288,7 @@ class Feed_Api_V1 extends CI_Controller {
                 $source = imagecreatefromgif($filename);
                 break;
             case 2:
-                $source = imagecreatefromjpg($filename);
+                $source = imagecreatefromjpeg($filename);
                 break;
             case 3:
                 $source = imagecreatefrompng($filename);
@@ -266,11 +299,33 @@ class Feed_Api_V1 extends CI_Controller {
 
         imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-        $new_img_name = explode('.',basename($img))[0] . '_' . $w;
+        $new_img_name = $imgName . '_' . $w;
+        //explode('.',basename($img))[0] . '_' . $w;
 
         $dirArray = str_split($new_img_name, 1);
+        if(! is_dir('./uploads/'.$dirArray[0] . "/"))
+            mkdir("./uploads/" . $dirArray[0] . "/", 0777);
+        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/"))
+            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/", 0777);
+        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/"))
+            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/", 0777);
+        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/"))
+            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/", 0777);
+
         $UploadDirectory = "./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/";
 
         $new_img = imagepng($thumb, $UploadDirectory.$new_img_name.'.png');
+    }
+    public function add_article(){
+        $options = $this->input->post();
+        $this->load->model('feed_models/articles_model');
+        $article_id = $this->articles_model->add($options);
+        return json_encode(Array("code"=>200, "article_id"=>$article_id));
+    }
+    public function get_article(){
+        $options = $this->input->post();
+        $this->load->model('feed_models/articles_model');
+        $list = $this->articles_model->get($options);
+        die(json_encode(Array("code"=>200, "data"=>$list)));
     }
 }

@@ -57,6 +57,9 @@ $route['feed/edit_url'] = "feed_api_v1/edit_url";
 $route['feed/remove_url'] = "feed_api_v1/remove_url";
 $route['feed/get_urls_list'] = "feed_api_v1/get_urls_list";
 
+$route['feed/get_article'] = "feed_api_v1/get_article";
+$route['feed/save_image_from_web'] = "feed_api_v1/save_image_from_web";
+$route['feed/add_article'] = "feed_api_v1/add_article";
 $route['feed/file_upload'] = "feed_api_v1/file_upload";
 
 $route['404_override'] = '';
