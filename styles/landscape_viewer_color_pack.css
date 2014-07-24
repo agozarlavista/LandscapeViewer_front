@@ -1,11 +1,14 @@
 .red{
     background-color: #DD5845;
+    color:white;
 }
 .redlight{
     background-color: #E16E59;
+    color:white;
 }
 .redshadow{
     background-color: #D84335;
+    color:white;
 }
 .red .dark{
     color : #A02924;

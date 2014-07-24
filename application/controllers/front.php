@@ -5,7 +5,7 @@ class front extends CI_Controller {
 	public function index()
 	{
         $data['js'][] = "js/landscape/admin.js";
-        //$data['css'][] = "styles/admin/admin.css";
+        $data['css'][] = "styles/lv-front-styles.css";
 
         $this->load->helper('url');
         $data['rootURL'] = base_url();
