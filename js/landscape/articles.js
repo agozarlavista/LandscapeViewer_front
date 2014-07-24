@@ -22,11 +22,16 @@ var articles = {
         //"http://www.milkmagazine.net/feed/"
         //alert(self._current_update+" == "+self._urls_list.length)
         if(self._current_update == self._urls_list.length){
-            alert('finished');
+            this.startUpdateArticles();
             return
         }
         console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
+            if(response.error){
+                self._current_update++;
+                self.startUpdateArticles();
+                return false;
+            }
             self._current_article_list = response;
             console.log(self._current_article_list);
             if(self._current_article_list.length > 0){

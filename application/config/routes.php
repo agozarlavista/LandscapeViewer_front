@@ -42,6 +42,8 @@ $route['default_controller'] = "welcome";
 $route['admin'] = "admin";
 $route['feed'] = "feed_api_v1";
 
+$route['front'] = "front";
+
 $route['feed/add_type'] = "feed_api_v1/add_type";
 $route['feed/edit_type'] = "feed_api_v1/edit_type";
 $route['feed/remove_type'] = "feed_api_v1/remove_type";

@@ -107,16 +107,17 @@ var landscapeViewerFeed = {
         //http://feeds.feedburner.com/BoredPanda
     },
     loadPage : function(address, callBack){
-
         this.callBack = callBack;
         var feed = new google.feeds.Feed(address);
 
 
         feed.load(function(result) {
             //alert(JSON.stringify(result));
-            if (!result.error) {
+            console.log(JSON.stringify(result));
+            if (!result.error && result.status.code == 200) {
                 landscapeViewerFeed.parseForApp(result);
             }else{
+                callBack({error:result.status.code});
                 //alert("error = "+JSON.stringify(result));
             }
         });

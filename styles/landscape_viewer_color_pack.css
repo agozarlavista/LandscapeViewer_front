@@ -1,0 +1,18 @@
+.red{
+    background-color: #DD5845;
+}
+.redlight{
+    background-color: #E16E59;
+}
+.redshadow{
+    background-color: #D84335;
+}
+.red .dark{
+    color : #A02924;
+}
+.redlight .dark{
+    color : #A02924;
+}
+.redshadow .dark{
+    color : #A02924;
+}
