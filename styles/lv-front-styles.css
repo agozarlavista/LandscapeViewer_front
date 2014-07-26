@@ -7,16 +7,44 @@ body{
     display: table;
     text-align: center;
     padding-top: 20px;
+    overflow: hidden;
 }
-input{
-    width:80%;
-    max-width: 640px;
-    padding: 10px;
-    border: none;
+.searchBar{
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+    background-color: #FFF;
+    max-width: 660px;
+    margin: auto;
+    padding: 0;
+    margin-top: 25px;
+}
+input[type="search"]{
+    -webkit-appearance: none;
+    width:90%;
+    max-width: 640px;
+    padding-left: 10px;
+    border: none;
     position:relative;
+    font-size: 14px;
+    font-weight: 100;
+    float: left;
+    margin: 0;
+    outline: none;
+    height: 36px;
+}
+input[type="search"]:focus{
+    outline: none;
+}
+.searchButton{
+    font-family: Flaticon;
+    background-color: #FFF;
+    float: right;
+    font-size: 44px;
+    line-height: 26px;
+    height: 36px;
+    width:8%;
+    cursor: pointer;
 }
 input .icon{
     font-family: Flaticon;
@@ -41,23 +69,23 @@ header{
     margin-right: 10px;
     display: table;
     float: left;
-    margin-top: 15px;;
+    margin-top: 20px;
 }
 .download_links{
-    font-size: 210px;
+    font-size: 270px;
     line-height: 0px;
     color: #E4A39A;
-    height: 55px;
+    height: 75px;
     display: inline-block;
     letter-spacing: 10px;
     float:left;
 }
 .download_links a{
     font-family: Flaticon;
-    font-size: 210px;
+    font-size: 270px;
     line-height: 0px;
     color: #E4A39A;
-    height: 55px;
+    height: 75px;
     display: inline-block;
     letter-spacing: 10px;
     float:left;
@@ -69,7 +97,7 @@ header{
 }
 .center{
     margin:auto;
-    max-width: 460px;
+    max-width: 580px;
 }
 .shortDesc{
     font-size: 10px;
@@ -93,8 +121,7 @@ header{
 
 nav{
     background-color: white;
-    height:75px;
-    overflow: hidden;
+    height:65px;
 }
 nav ul{
     float:right;
@@ -104,25 +131,147 @@ nav ul{
 nav li{
     float: right;
     list-style: none;
-    height: 50px;
+    height: 37px;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
-    border: 1px solid #868687;
-    color: #333333;
+    border: 1px solid #E3E3E3;
+    color: #868687;
     padding: 0;
     margin: 12px;
     margin-left: 0;
-    line-height: 49px;
+    line-height: 36px;
     padding-left: 43px;
     padding-right: 20px;
     position: relative;
+    cursor: pointer;
+}
+nav li:hover{
+    background-color:#F9F9F9;
+    cursor: pointer;
 }
 nav li .icon{
-    color: #868687;
+    color: #E3E3E3;
     font-family: Flaticon;
     font-size: 40px;
-    line-height: 38px;
+    line-height: 25px;
     position: absolute;
     left: 12px;
+    cursor: pointer;
+}
+
+section{
+    min-height:100%;
+    position:relative;
+    margin: auto;
+}
+.panoramic{
+    max-width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: table;
+    margin-top: 14px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background: #FFF;
+    position:absolute;
+}
+article{
+    max-width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+    display: table;
+    margin-top: 14px;
+    margin-left: 7px;
+    margin-right: 7px;
+    background: #FFF;
+    position:absolute;
+}
+article header{
+    background: #F0F0F0;
+    width: 100%;
+    height: 120px;
+    background-size: cover !important;
+    background-position: center !important;
+}
+article .title{
+    padding: 10px;
+    font-size: 20px;
+}
+article .short_text{
+    padding: 10px;
+    padding-bottom:25px;
+    color: #868687;
+    font-size: 14px;
+}
+article .infos{
+    border-top: 1px solid #E3E3E3;
+    display: table;
+    width: 100%;
+    color:#C1C0BD;
+    font-weight: 200;
+    font-size: 14px;
+}
+article .infos .liked{
+    width: 60px;
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #E3E3E3;
+    position: relative;
+    padding-left: 40px;
+}
+article .infos .icon{
+    color:#C1C0BD;
+    font-family: Flaticon;
+    position: absolute;
+    left: 15px;
+    top: 0;
+    font-size: 30px;
+    line-height: 28px;
+    overflow: hidden;
+}
+article .infos .viewed{
+    width: 60px;
+    float: left;
+    padding: 10px;
+    position: relative;
+    padding-left: 40px;
+}
+article .source{
+    float: left;
+    width: 100%;
+    padding: 10px;
+    border-top:1px solid #E3E3E3;
+}
+article .source .thumb{
+    border-radius: 50px;
+    width:40px;
+    height:40px;
+    float:left;
+    margin-right:20px;
+    background-color:#E3E3E3;
+    background-size: cover;
+}
+
+article .source .label{
+    width: 190px;
+    float:left;
+}
+article .source .date{
+    font-size:12px;
+    color:#868687;
+    float:left;
+    padding-top: 5px;
+}
+
+.refreshBar{
+    width:100%;
+    float:left;
+    height:1px;
+    background-color:#E3E3E3;
+}
+.refreshBar .progress{
+    width:100%;
+    float:left;
+    height:1px;
 }

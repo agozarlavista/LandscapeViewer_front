@@ -156,7 +156,9 @@ var landscapeViewerFeed = {
             var imageHref = stripImages[m].split('src=\"');
             if(imageHref.length>1){
                 var preciseImageLink = imageHref[1].split('\" ')[0];
-                images.push(preciseImageLink.replace('">',''));
+                //if(preciseImageLink.indexOf('.img') != -1){
+                    images.push(preciseImageLink.replace('">',''));
+                //}
             }
         }
         return images;

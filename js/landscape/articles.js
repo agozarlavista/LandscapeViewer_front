@@ -11,7 +11,14 @@ var articles = {
             for(var i=0; i<self._urls_list.length; i++){
                 $('#urls_list').append(self._urls_list[i].url);
             }
-            self.startUpdateArticles();
+            setTimeout(function(){self.startUpdateArticles();},500);
+        });
+        //this.testLoadContent();
+    },
+    testLoadContent : function(){
+        $(this).load("http://www.lemonde.fr/pixels/video/2014/07/26/le-betisier-de-la-saison-4-de-game-of-thrones_4463183_4408996.html", function(e) {
+            alert( "Load was performed. " );
+            console.log(e);
         });
     },
     startUpdateArticles : function(){
@@ -21,24 +28,29 @@ var articles = {
         //self._urls_list[self._current_update].url
         //"http://www.milkmagazine.net/feed/"
         //alert(self._current_update+" == "+self._urls_list.length)
-        if(self._current_update == self._urls_list.length){
-            this.startUpdateArticles();
+        if(self._current_update == self._urls_list.length-1){
+            self._current_update = 0;
+            setTimeout(function(){self.startUpdateArticles();},500);
             return
         }
         console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
+        //landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
             if(response.error){
                 self._current_update++;
-                self.startUpdateArticles();
+                setTimeout(function(){self.startUpdateArticles();},500);
                 return false;
             }
+            //console.log(JSON.stringify(response));
+            //return;
             self._current_article_list = response;
             console.log(self._current_article_list);
             if(self._current_article_list.length > 0){
                 self.saveFeedArticles();
             }else{
                 self._current_update++;
-                self.startUpdateArticles();
+                setTimeout(function(){self.startUpdateArticles();},500);
+
             }
         });
     },
@@ -55,7 +67,9 @@ var articles = {
         //this._current_article;
     },
     saveArticle : function(Object, callBack){
-        console.log("saveArticle");
+        //console.log("saveArticle");
+        //console.log(Object);
+        //return;
         var self = this;
         //ON CRée le thumb en premier
         var data_image = {
@@ -105,7 +119,7 @@ var articles = {
         }else{
             console.log('on a parcuru les articles du feed on passe au feed suivant');
             self._current_update++;
-            self.startUpdateArticles();
+            setTimeout(function(){self.startUpdateArticles();},500);
         }
     },
     short : function(str){

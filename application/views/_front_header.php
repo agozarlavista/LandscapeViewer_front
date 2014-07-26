@@ -36,17 +36,18 @@
         <div class="line">
             <span class="baseLine">All your favorites on a page.</span>
         </div>
-        <div class="line">
+        <div class="line searchBar">
             <input type="search" placeholder="Search" id="searchInput">
+            <div class="searchButton redfont">S</div>
         </div>
         <div class="line center">
-            <span class="download_icon"><img src="<?php echo base_url(); ?>images/assets/icon_75.png" alt="landscape viewer app icon" height="40px"/></span><span class="download_links"><a href="apple" class="animated">a</a><a href="google" class="animated">â</a><a href="wp" class="animated">ä</a></span>
+            <span class="download_icon"><img src="<?php echo base_url(); ?>images/assets/icon_75.png" alt="landscape viewer app icon" height="50px"/></span><span class="download_links"><a href="apple" class="animated">a</a><a href="google" class="animated">â</a><a href="wp" class="animated">ä</a></span>
             <span class="shortDesc dark">Available on the App Store, Windows Phone and Google Play. Download the App now.</span>
         </div>
     </header>
-    <nav>
+    <nav id="top_nav">
         <div class="header_logo">
-            <img src="<?php echo base_url(); ?>images/assets/logos/landscape_viewer_header_logo.png"/>
+            <img src="<?php echo base_url(); ?>images/assets/logos/landscape_viewer_header_logo.png" height="60px"/>
         </div>
         <ul>
             <li>
@@ -56,4 +57,7 @@
                 <span class="icon">N</span>Login
             </li>
         </ul>
+        <div class="refreshBar">
+            <div class="progress red"></div>
+        </div>
     </nav>
