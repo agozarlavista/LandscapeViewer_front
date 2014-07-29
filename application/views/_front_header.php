@@ -56,8 +56,24 @@
             <li>
                 <span class="icon">N</span>Login
             </li>
+            <li>
+                <span class="icon">f</span>Advenced Search
+            </li>
         </ul>
         <div class="refreshBar">
             <div class="progress red"></div>
+        </div>
+        <div class="filters">
+            <ul>
+                <li><span class="icon">+</span></li>
+                <li><span class="icon">X</span>Filter 1</li>
+            </ul>
+        </div>
+        <div class="refresh_bull">
+            <div class="refresh_bull_arrow"></div>
+            <span class="refresh_bull_count">
+                <!--<span class="icon">R</span>-->
+                8
+            </span>
         </div>
     </nav>

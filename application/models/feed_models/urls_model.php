@@ -48,6 +48,7 @@ class Urls_Model extends CI_Model{
             $this->db->where('id_type', $options['type_id']);
         if(isset($options['source_id']))
             $this->db->where('id_source', $options['source_id']);
+        $this->db->order_by('id', 'desc');
 		$query = $this->db->get('feed_urls');
 		return $query->result();
     }

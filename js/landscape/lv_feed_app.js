@@ -125,8 +125,9 @@ var landscapeViewerFeed = {
     parseForApp : function(result){
         var parsedResult = [];
         var container = document.getElementById("feed");
+        //alert(result.feed.entries.length);
         for (var i = 0; i < result.feed.entries.length; i++) {
-            //console.log(result.feed.entries[i].content);
+            //alert(result.feed.entries[i].content);
             var saveContent = result.feed.entries[i].content;
             //console.log(i);
             result.feed.entries[i].images = this.getImages(result.feed.entries[i].content);
@@ -135,8 +136,8 @@ var landscapeViewerFeed = {
             result.feed.entries[i].twits = this.getTwits(result.feed.entries[i].content);
             result.feed.entries[i].videos = this.getVideos(result.feed.entries[i].content);
             result.feed.entries[i].content = this.parseHTML(saveContent);
-            if(result.feed.entries[i].images.length > 0)
-                parsedResult.push(result.feed.entries[i]);
+            //if(result.feed.entries[i].images.length > 0)
+            parsedResult.push(result.feed.entries[i]);
         }
         this.searchList = parsedResult;
         //alert(JSON.stringify(this.searchList));
