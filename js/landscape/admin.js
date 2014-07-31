@@ -322,7 +322,7 @@ var admin = {
         $.ajax({
             type:'POST',
             method:'POST',/* for newest version of jQuery */
-            url:'feed/file_upload',
+            url:'../feed/file_upload',
             headers:{'Cache-Control':'no-cache'},
             data:data,
             contentType:false,

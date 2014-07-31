@@ -10,7 +10,7 @@ class Feed_Api_V1 extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
-	
+
 	public function add_type(){
 		$post = $this->input->post();
 		$this->load->model('feed_models/types_model');
@@ -196,7 +196,7 @@ class Feed_Api_V1 extends CI_Controller {
             $File_Name          = strtolower($_FILES['file']['name'][0]);
             $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
             $Random_Number      = time().uniqid(); //Random number to be added to name.
-            $NewFileName 		= $Random_Number.$File_Ext; //new file name
+            $NewFileName 		= $File_Ext.$Random_Number; //new file name
 
             $dirArray = str_split($NewFileName, 1);
             if(! is_dir('./uploads/'.$dirArray[0] . "/"))

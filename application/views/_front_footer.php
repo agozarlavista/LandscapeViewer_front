@@ -9,6 +9,9 @@
     <script src="<?php echo base_url(); ?>js/jquery.form.min.js" type="text/javascript" ></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
+    <!-- lv utilities-->
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_ui.js"></script>
+
     <!--backbones utilities-->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-utilities/vendor/json2.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-utilities/vendor/underscore.js"></script>

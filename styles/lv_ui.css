@@ -1,0 +1,68 @@
+.alert{
+    position:absolute;
+    display:table;
+    top:150%;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background-color:white;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    min-width:250px;
+    max-width:350px;
+    max-height:450px;
+}
+.alert .title{
+    display:table;
+    float:left;
+    position:relative;
+    width:100%;
+    text-align: center;
+    color:#666;
+    line-height:30px;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+.alert .title::first-letter{
+    text-transform:capitalize;
+}
+.alert .message{
+    display:table;
+    float:left;
+    position:relative;
+    width:100%;
+    text-align: center;
+    color:#666;
+    line-height:13px;
+    font-size: 12px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.alert .buttons{
+    display:table;
+    position:relative;
+    float:left;
+    color:white;
+    width:100%;
+    margin-bottom:10px;
+    text-align:center;
+}
+.alert .buttons .content_buttons{
+    width: auto;
+    display: table;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.alert .buttons .button{
+    display:table;
+    padding:10px;
+    float:left;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-left:10px;
+    cursor:pointer;
+}

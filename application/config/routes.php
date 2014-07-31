@@ -41,6 +41,7 @@
 $route['default_controller'] = "welcome";
 $route['admin'] = "admin";
 $route['feed'] = "feed_api_v1";
+$route['rest'] = "public_api";
 
 $route['front'] = "front";
 

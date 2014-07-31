@@ -8,8 +8,28 @@ var public_api = {
     _panoramic_longPress : [],
     _startTime : 0,
 	init : function(){
-        this.get_articles();
+
 	},
+    get_auth : function(params){
+        utilities.load_service(
+            "lv_api/get_auth",
+            params,
+            function(result){
+                var response = JSON.parse(result);
+                self._articles = response.data;
+                self.display_pack();
+            }
+        );
+    },
+    destroy_auth : function(){
+
+    },
+    create_auth : function(){
+
+    },
+    set_user_profile : function(){
+
+    },
     get_articles : function(){
         var self = this;
         var params = {
@@ -26,7 +46,7 @@ var public_api = {
     },
     display_pack : function(){
         var self = this;
-        $('#global_section').html('');
+        //$('#global_section').html('');
         this._cols = Math.round($(document).width()/264)-1;
         var _currentCol = 0;
         $('#global_section').width(264*this._cols);
@@ -68,8 +88,10 @@ var public_api = {
                     self._defaultPosition = $(this).offset();
                     TweenMax.to($(this),.2, {scaleX:.5, scaleY:.5});
                     $(this).css('z-index', '9');
+                    self.openDropZone();
                 },
                 stop: function( event, ui ) {
+                    self.closeDropZone();
                     TweenMax.to($('.selected_frame'), .1, {css:{'border':'5px solid #50AACE'}});
                     TweenMax.to($(this),.5, {scaleX:1, scaleY:1, delay:.2});
                     TweenMax.to($(this), .5, {css:{left:ui.originalPosition.left, top:ui.originalPosition.top}, onComplete:function(){
@@ -80,11 +102,6 @@ var public_api = {
             });
             $( "#art_"+i ).droppable({
                 drop: function(event, ui) {
-                    //console.log($(this).attr('id'));
-                    //console.log( ui.helper[0].id);
-                    //console.log( ui.helper[0].nextElementSibling.id);
-                    //console.log( event );
-                    //console.log( ui );
                     self.createPanoramic(ui.helper[0].id, $(this).attr('id'));
                 }
             });
@@ -122,6 +139,8 @@ var public_api = {
             _currentCol++;
             if(_currentCol >= this._cols)
                 _currentCol = 0;
+            if(i > this._cols)
+                _currentCol = this.getHeight()[0].id;
         }
     },
     createPanoramic : function(article, target){
@@ -153,8 +172,6 @@ var public_api = {
 
         $( "#panoramic_"+self._panoramics.length ).droppable({
             drop: function(event, ui) {
-                console.log($(this).attr('id'));
-                console.log( ui.helper[0].id );
                 //console.log( ui.helper[0].nextElementSibling.id);
                 //console.log( event );
                 //console.log( ui );
@@ -187,9 +204,10 @@ var public_api = {
         $( "#panoramic_"+panoramicId+" #article_"+objectId ).draggable({
             start: function( event, ui ) {
                 $(this).css('z-index', '9');
+                //self.openDropZone();
             },
             stop: function( event, ui ) {
-                //console.log(event);
+                //self.closeDropZone();
                 TweenMax.to($(this), .5, {css:{left:ui.originalPosition.left, top:ui.originalPosition.top}, onComplete:function(){
 
                 }});
@@ -201,13 +219,22 @@ var public_api = {
         for(var i=0; i<this._cols; i++){
             var h=0;
             jQuery.each( $('.col_'+i), function( i ) {
-                //console.log($(this));
                 TweenMax.to($(this),.5, {css:{'top': h+"px"}});
                 h+=$(this).height();
                 h+=14;
                 //h+=14;
             });
         }
+    },
+    openDropZone : function(){
+        TweenMax.to($('.panoramic_drop_zone'), .5, {
+            css:{height:'240px'}, ease:Power4.easeOut
+        });
+    },
+    closeDropZone : function(){
+        TweenMax.to($('.panoramic_drop_zone'), .5, {
+            css:{height:'0px'}, ease:Power4.easeIn
+        });
     },
     activeDropZone : function(){
 
@@ -220,12 +247,24 @@ var public_api = {
     getCurrentColHeight : function(id){
         var h=0;
         jQuery.each( $('.col_'+id), function( i ) {
-            //console.log($(this));
             h+=$(this).height();
             h+=14;
         });
         return h;
         //alert($('.col_'+id).length);
+    },
+    getHeight : function(){
+        var colsHeight = [];
+        for(var i=0; i<this._cols; i++){
+            colsHeight.push({"id":i, "height":this.getCurrentColHeight(i)});
+        }
+        var prop = "height";
+        var asc = true;
+        colsHeight = colsHeight.sort(function(a, b) {
+            if (asc) return (a[prop] > b[prop]) ? 1 : ((a[prop] < b[prop]) ? -1 : 0);
+            else return (b[prop] > a[prop]) ? 1 : ((b[prop] < a[prop]) ? -1 : 0);
+        });
+        return colsHeight.sort();
     },
     makeShortDesc : function(str){
         if(str.length < 80){

@@ -1,4 +1,38 @@
     <section id="global_section">
+        <article class="col_0" id="profile_options">
+            <div class="line">
+                <div class="avatar"></div>
+                Simon
+            </div>
+            <div class="line">
+                <div class="icon">f</div>
+                <span class="font_grey">Search Settings</span>
+            </div>
+            <ul>
+                <li>Press<div class="arrow"></div></li>
+                <li>Local News<div class="arrow"></div></li>
+            </ul>
+            <div class="line">
+                <div class="icon">P</div>
+                <span class="font_grey">Last Panoramics</span>
+            </div>
+            <ul>
+                <li>panoramic 1<div class="arrow"></div></li>
+                <li>panoramic 2<div class="arrow"></div></li>
+                <li>panoramic 3<div class="arrow"></div></li>
+                <li>panoramic 4<div class="arrow"></div></li>
+            </ul>
+            <div class="line">
+                <div class="icon">A</div>
+                <span class="font_grey">Friends interests</span>
+            </div>
+            <div class="line last center">
+                <button class="lightButton">
+                    <span class="icon">N</span>
+                    Invite Friends
+                </button>
+            </div>
+        </article>
         <!--<article id="">
             <header style="background:#98BB82;"></header>
             <div class="title">Article 1</div>
@@ -14,6 +48,9 @@
             </div>
         </article>-->
     </section>
+    <div class="refresh_bottom">
+        <div class="bar red"></div>
+    </div>
     <div class="panoramic_drop_zone">
         <div class="zone">P</div>
         <div class="footer">
@@ -34,7 +71,9 @@
         <button class="button">3</button>
         <button class="button">A</button>
     </div>
-    <header style="background:<%= dominante %>; width:<%= width %>px; height:<%= height %>px; background-image:url(<%= url %>);<% if(height==0){ %><%= "display:none;"%><% } %>"></header>
+    <header style="background:<%= dominante %>; width:<%= width %>px; height:<%= height %>px; <% if(height==0){ %><%= "display:none;"%><% } %>" data-ground="<%= url %>">
+        <div class="image_header"></div>
+    </header>
     <div class="title"><%= title %></div>
     <div class="short_text"><%= short_desc %></div>
     <div class="infos">
