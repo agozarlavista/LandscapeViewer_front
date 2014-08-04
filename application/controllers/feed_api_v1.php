@@ -172,31 +172,51 @@ class Feed_Api_V1 extends CI_Controller {
             if ($_FILES['file']["size"][0] > 5242880) {
                 die("File size is too big!");
             }
-
-            //allowed file type Server side check
-            switch(strtolower($_FILES['file']['type'][0]))
-            {
-                //allowed file types
-                case 'image/png':
-                case 'image/gif':
-                case 'image/jpeg':
-                case 'image/pjpeg':
-                case 'text/plain':
-                case 'text/html': //html file
-                case 'application/x-zip-compressed':
-                case 'application/pdf':
-                case 'application/msword':
-                case 'application/vnd.ms-excel':
-                case 'video/mp4':
-                    break;
-                default:
-                    die('Unsupported File!'); //output error
+            if(is_array($_FILES['file']['type'])){
+                //allowed file type Server side check
+                switch(strtolower($_FILES['file']['type'][0]))
+                {
+                    //allowed file types
+                    case 'image/png':
+                    case 'image/gif':
+                    case 'image/jpeg':
+                    case 'image/pjpeg':
+                    case 'text/plain':
+                    case 'text/html': //html file
+                    case 'application/x-zip-compressed':
+                    case 'application/pdf':
+                    case 'application/msword':
+                    case 'application/vnd.ms-excel':
+                    case 'video/mp4':
+                        break;
+                    default:
+                        die('Unsupported File!'); //output error
+                }
+                $File_Name          = strtolower($_FILES['file']['name'][0]);
+            }else{
+                switch(strtolower($_FILES['file']['type']))
+                {
+                    //allowed file types
+                    case 'image/png':
+                    case 'image/gif':
+                    case 'image/jpeg':
+                    case 'image/pjpeg':
+                    case 'text/plain':
+                    case 'text/html': //html file
+                    case 'application/x-zip-compressed':
+                    case 'application/pdf':
+                    case 'application/msword':
+                    case 'application/vnd.ms-excel':
+                    case 'video/mp4':
+                        break;
+                    default:
+                        die('Unsupported File!'); //output error
+                }
+                $File_Name          = strtolower($_FILES['file']['name']);
             }
-
-            $File_Name          = strtolower($_FILES['file']['name'][0]);
             $File_Ext           = substr($File_Name, strrpos($File_Name, '.')); //get file extention
-            $Random_Number      = time().uniqid(); //Random number to be added to name.
-            $NewFileName 		= $File_Ext.$Random_Number; //new file name
+            $Random_Number      = uniqid().time(); //Random number to be added to name.
+            $NewFileName 		= $Random_Number.$File_Ext; //new file name
 
             $dirArray = str_split($NewFileName, 1);
             if(! is_dir('./uploads/'.$dirArray[0] . "/"))
@@ -209,8 +229,11 @@ class Feed_Api_V1 extends CI_Controller {
                 mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/", 0777);
 
             $UploadDirectory = "./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/";
-
-            if(move_uploaded_file($_FILES['file']['tmp_name'][0], $UploadDirectory.$NewFileName ))
+            if(is_array($_FILES['file']['tmp_name']))
+                $moved = $_FILES['file']['tmp_name'][0];
+            else
+                $moved = $_FILES['file']['tmp_name'];
+            if(move_uploaded_file($moved, $UploadDirectory.$NewFileName ))
             {
                 $options = Array(
                     "url" => $UploadDirectory.$NewFileName,

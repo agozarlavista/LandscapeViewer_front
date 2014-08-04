@@ -39,12 +39,22 @@
 */
 
 $route['default_controller'] = "welcome";
-$route['admin'] = "admin";
-$route['feed'] = "feed_api_v1";
+/*$route['admin'] = "admin";
+
 $route['rest'] = "public_api";
+$route['rest/:any'] = "public_api";
 
 $route['front'] = "front";
+$route['front/:any'] = "front";
+*/
+$route['login'] = "front/login";
+$route['login/:any'] = "front/login";
+$route['register'] = "front/login";
+$route['register/:any'] = "front/login";
+$route['lost_password'] = "front/login";
+$route['lost_password/:any'] = "front/login";
 
+$route['feed'] = "feed_api_v1";
 $route['feed/add_type'] = "feed_api_v1/add_type";
 $route['feed/edit_type'] = "feed_api_v1/edit_type";
 $route['feed/remove_type'] = "feed_api_v1/remove_type";

@@ -56,9 +56,12 @@
             <li>
                 <span class="icon">N</span>Get the app
             </li>
-            <li>
-                <span class="icon">N</span>Login
-            </li>
+            <?php
+
+                if($session == false){
+                    echo '<li><span class="icon">N</span>Login</li>';
+                }
+            ?>
             <li>
                 <span class="icon">f</span>Advenced Search
             </li>

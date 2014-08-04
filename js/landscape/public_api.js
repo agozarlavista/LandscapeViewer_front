@@ -38,8 +38,9 @@ var public_api = {
             "feed/get_article",
             params,
             function(result){
-                var response = JSON.parse(result);
-                self._articles = response.data;
+                console.log(result);
+                var response = JSON.parse(JSON.stringify(result));
+                self._articles = response;
                 self.display_pack();
             }
         );

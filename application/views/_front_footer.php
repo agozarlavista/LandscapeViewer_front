@@ -17,6 +17,7 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-utilities/vendor/underscore.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_long_press.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/dropzone.js"></script>
 
     <?php
     if (isset($js)) {

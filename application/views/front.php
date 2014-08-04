@@ -1,38 +1,8 @@
     <section id="global_section">
-        <article class="col_0" id="profile_options">
-            <div class="line">
-                <div class="avatar"></div>
-                Simon
-            </div>
-            <div class="line">
-                <div class="icon">f</div>
-                <span class="font_grey">Search Settings</span>
-            </div>
-            <ul>
-                <li>Press<div class="arrow"></div></li>
-                <li>Local News<div class="arrow"></div></li>
-            </ul>
-            <div class="line">
-                <div class="icon">P</div>
-                <span class="font_grey">Last Panoramics</span>
-            </div>
-            <ul>
-                <li>panoramic 1<div class="arrow"></div></li>
-                <li>panoramic 2<div class="arrow"></div></li>
-                <li>panoramic 3<div class="arrow"></div></li>
-                <li>panoramic 4<div class="arrow"></div></li>
-            </ul>
-            <div class="line">
-                <div class="icon">A</div>
-                <span class="font_grey">Friends interests</span>
-            </div>
-            <div class="line last center">
-                <button class="lightButton">
-                    <span class="icon">N</span>
-                    Invite Friends
-                </button>
-            </div>
-        </article>
+        <?php if($session != false){
+            //load view user infos
+            $this->load->view('user_infos');
+        ?>
         <!--<article id="">
             <header style="background:#98BB82;"></header>
             <div class="title">Article 1</div>

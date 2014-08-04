@@ -1,0 +1,15 @@
+Options +FollowSymLinks +SymLinksIfOwnerMatch
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule /welcome/ 	 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+DirectoryIndex index.html index.php /index.php
+
+AddType text/csv csv
+AddType application/vnd.ms-excel xls
