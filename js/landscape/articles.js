@@ -7,7 +7,7 @@ var articles = {
 	init : function(){
         var self = this;
 	    utilities.load_service("feed/get_urls_list", {}, function(e){
-            self._urls_list = JSON.parse(e);
+            self._urls_list = e;
             for(var i=0; i<self._urls_list.length; i++){
                 $('#urls_list').append(self._urls_list[i].url);
             }
@@ -29,13 +29,13 @@ var articles = {
         console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
         //landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
-            alert(response.error);
+            //alert(response.error);
             if(response.error){
                 self._current_update++;
                 setTimeout(function(){self.startUpdateArticles();},500);
                 return false;
             }
-            alert(response);
+            //alert(response);
             //console.log(JSON.stringify(response));
             //return;
             self._current_article_list = response;
@@ -62,7 +62,7 @@ var articles = {
         //this._current_article;
     },
     saveArticle : function(Object, callBack){
-        //console.log("saveArticle");
+        console.log("saveArticle");
         //console.log(Object);
         //return;
         var self = this;
@@ -71,18 +71,25 @@ var articles = {
             "image_url" : Object.images[0]
         }
         utilities.load_service("feed/get_article", {"link":Object.link}, function(e){
-            response = JSON.parse(e);
+            //response = JSON.parse(e);
+            //alert("get_article "+JSON.stringify(e));
+            response = e;
             if(response.code != 200)
                 return;
+            //alert(response.data);
             if(response.data.length>0){
                 console.log('already exist');
                 self.nextArticle();
                 return;
             }
             utilities.load_service("feed/save_image_from_web", data_image, function(reponse){
+                alert(response);
                 console.log(reponse);
-                response = JSON.parse(reponse);
+                response = reponse;
                 //alert(response+" "+response.code+ "  " + typeof response.code);
+                if(typeof response.code == "undefined"){
+
+                }
                 if(parseInt(response.code) == 200){
                     var params = {
                         object : JSON.stringify(Object),

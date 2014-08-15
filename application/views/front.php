@@ -1,7 +1,8 @@
     <section id="global_section">
-        <?php if($session != false){
-            //load view user infos
-            $this->load->view('user_infos');
+        <?php
+        if($session != false){
+            $this->load->view('user_infos', $user_infos);
+        }
         ?>
         <!--<article id="">
             <header style="background:#98BB82;"></header>
@@ -69,7 +70,7 @@
     <div class="container">
     </div>
     <div class="panoramic_footer">
-        <button class="panoramic_footer_button">P</button>
+        <button class="panoramic_footer_button" id="create_panoramic">P</button>
     </div>
 </script>
     <!--<div class="thumb"></div>

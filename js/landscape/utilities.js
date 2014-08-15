@@ -14,6 +14,7 @@ var utilities = {
                 callback(response.data);
             },
             error: function(e) {
+                alert(e);
                 if(JSON.parse(e.responseText).message){
                     alert(JSON.parse(e.responseText).message.message);
                 }

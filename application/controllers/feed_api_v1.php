@@ -101,7 +101,11 @@ class Feed_Api_V1 extends CI_Controller {
 	}
 	public function send_response($data){
 		//echo "send response";
-		echo json_encode($data);
+		//echo json_encode($data);
+        $this->output->set_status_header("200");
+        //$this->response($data, $httpCode);
+        $this->output->set_output(json_encode(array("data"=>$data)));
+        return;
 	}
     public function get_image_size($img){
         list($width, $height, $type, $attr) = getimagesize($img);
@@ -349,6 +353,7 @@ class Feed_Api_V1 extends CI_Controller {
         $options = $this->input->post();
         $this->load->model('feed_models/articles_model');
         $list = $this->articles_model->get($options);
-        die(json_encode(Array("code"=>200, "data"=>$list)));
+        $this->send_response(Array("code"=>200, "data"=>$list));
+        //die(json_encode(Array("code"=>200, "data"=>$list)));
     }
 }

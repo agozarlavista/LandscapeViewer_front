@@ -39,7 +39,7 @@ var public_api = {
             params,
             function(result){
                 console.log(result);
-                var response = JSON.parse(JSON.stringify(result));
+                var response = JSON.parse(JSON.stringify(result.data));
                 self._articles = response;
                 self.display_pack();
             }
@@ -170,6 +170,10 @@ var public_api = {
         _panoramicView = new PanoramicView({ model: _panoramic });
 
         $('#'+target).after(_panoramicView.render().el);
+
+        $('#panoramic_' + self._panoramics.length + ' #create_panoramic').bind('click', function(){
+            alert('create_panoramic');
+        });
 
         $( "#panoramic_"+self._panoramics.length ).droppable({
             drop: function(event, ui) {

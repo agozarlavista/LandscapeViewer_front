@@ -50,15 +50,15 @@ class Articles_Model extends CI_Model{
         if(isset($options['link']))
             $this->db->where('link', $options['link']);
         $this->db->from('feed_articles');
-        $this->db->where('feed_articles.id_type', 33);
+        //$this->db->where('feed_articles.id_type', 33);
         //$this->db->or_where('feed_articles.id_type', 34);
         //$this->db->or_where('feed_articles.id_type', 35);
-        $this->db->or_where('feed_articles.id_type', 36);
-        $this->db->order_by("feed_articles.id", "desc");
+        //$this->db->or_where('feed_articles.id_type', 36);
+        //$this->db->order_by("feed_articles.id", "desc");
         $this->db->limit(100,0);
         $this->db->join('feed_media', 'feed_media.id = feed_articles.image_id');
         $this->db->join('feed_sources', 'feed_sources.id = feed_articles.id_source');
         $result = $this->db->get();
-		return $result->result();
+		return $result->result_array();
     }
 }

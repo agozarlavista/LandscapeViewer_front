@@ -10,6 +10,10 @@ class front extends CI_Controller {
         $data['css'][] = "styles/lv-front-styles.css";
         $data['session'] = $this->session->userdata('lv_user');
 
+        // have to create model for :
+        //user infos must contain : 1_ user_search_sessions 2_ user_panoramics_list 3_ user_last_friends_interests
+        $data['user_infos'] = [];
+
         $this->load->helper('url');
         $data['rootURL'] = base_url();
 		$this->load->view('_front_header', $data);
