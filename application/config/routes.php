@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "front";
 /*$route['admin'] = "admin";
 
 $route['rest'] = "public_api";
@@ -47,6 +47,10 @@ $route['rest/:any'] = "public_api";
 $route['front'] = "front";
 $route['front/:any'] = "front";
 */
+$route['page'] = "page";
+$route['page/:any'] = "page";
+$route['article'] = "article";
+$route['article/:any'] = "article";
 $route['login'] = "front/login";
 $route['login/:any'] = "front/login";
 $route['register'] = "front/login";

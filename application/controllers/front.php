@@ -1,8 +1,9 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class front extends CI_Controller {
-
-	public function index()
+    public $_auth_mandatory = false;
+    public $_user_id;
+    public function index()
 	{
         $this->load->library('session');
         $data['js'][] = "js/landscape/public_api.js";
@@ -13,7 +14,9 @@ class front extends CI_Controller {
         // have to create model for :
         //user infos must contain : 1_ user_search_sessions 2_ user_panoramics_list 3_ user_last_friends_interests
         $data['user_infos'] = [];
-
+        if($data['session'] != false){
+            $data['js'][] = "js/landscape/user.js";
+        }
         $this->load->helper('url');
         $data['rootURL'] = base_url();
 		$this->load->view('_front_header', $data);

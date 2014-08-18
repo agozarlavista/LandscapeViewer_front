@@ -6,6 +6,22 @@ var lv_ui = {
             self.destroy_component();
         });
     },
+    tryComponent : function(){
+        this.alert_component(
+            {
+                title:"test",
+                message:"alert test message",
+                buttons:[
+                    {color:"red", label:"ok"},
+                    {color:"red", label:"not ok"},
+                    {color:"red", label:"prehaps"}
+                ]
+            },
+            function(e){
+                console.log(e);
+            }
+        );
+    },
     alert_component : function(params, callBack){
         this._callBack = callBack;
         this.get_template({name:"alert_template", attr:"alert", values:params, target:$('.lv_component')});
@@ -37,8 +53,11 @@ var lv_ui = {
         var Template = Backbone.Model.extend({
             defaults:this.profile_data
         });
+        var tag = "div";
+        if(typeof params['tagName'] != "undefined")
+            tag = params['tagName'];
         var TemplateView = Backbone.View.extend({
-            tagName:"div",
+            tagName:tag,
             className:params.attr,
             template:$("#"+params.name).html(),
             render:function () {
@@ -50,6 +69,11 @@ var lv_ui = {
         var _template = new Template(params.values);
         _templateView = new TemplateView({ model: _template });
         params.target.append(_templateView.render().el);
+    },
+    destroyElement : function(obj, callBack){
+        //here we can make special motion explosion when remove element
+        obj.remove();
+        callBack(true);
     },
     destroy : function(){
 

@@ -7,8 +7,11 @@ var public_api = {
     _longPress : [],
     _panoramic_longPress : [],
     _startTime : 0,
+    _parnoamics_articles : [],
+    _dropLocked : false,
+    _dropped_articles : null,
 	init : function(){
-
+        this.activeDropZone();
 	},
     get_auth : function(params){
         utilities.load_service(
@@ -33,13 +36,14 @@ var public_api = {
     get_articles : function(){
         var self = this;
         var params = {
+            limit:100
         }
         utilities.load_service(
             "feed/get_article",
             params,
             function(result){
                 console.log(result);
-                var response = JSON.parse(JSON.stringify(result.data));
+                var response = result;
                 self._articles = response;
                 self.display_pack();
             }
@@ -88,11 +92,14 @@ var public_api = {
                 start: function( event, ui ) {
                     self._defaultPosition = $(this).offset();
                     TweenMax.to($(this),.2, {scaleX:.5, scaleY:.5});
-                    $(this).css('z-index', '9');
+                    $(this).css('z-index', '999');
                     self.openDropZone();
                 },
                 stop: function( event, ui ) {
-                    self.closeDropZone();
+                    console.log(ui);
+                    console.log("cible = "+ ui.helper[0].nextElementSibling.id);
+                    if(!self._dropLocked)
+                        self.closeDropZone();
                     TweenMax.to($('.selected_frame'), .1, {css:{'border':'5px solid #50AACE'}});
                     TweenMax.to($(this),.5, {scaleX:1, scaleY:1, delay:.2});
                     TweenMax.to($(this), .5, {css:{left:ui.originalPosition.left, top:ui.originalPosition.top}, onComplete:function(){
@@ -117,9 +124,15 @@ var public_api = {
                     TweenMax.to($('.selected_frame'), .1, {css:{'border':'5px solid #50AACE'}});
                 }
             });
-            $('#art_'+i).on('click', function(){
+            $('#art_'+i).on('click', function(e){
                 if(new Date().getTime() - self._startTime < 100){
-                    alert('tap');
+                    if($(e.target).attr('id') === undefined){
+                        //alert(self._articles[$(this).attr('id').replace('art_', '')].title);
+                        //alert('redirect to article page encode uri /article/article_name');
+                        var adress = escape(encodeURI(self._articles[$(this).attr('id').replace('art_', '')].title.split(' ').join('_')));
+                        //adress =  adress.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+                        window.location.href = utilities.defaultUri+"article/"+adress;
+                    }
                 }
             });
             $('#art_'+i).on('mouseover', function(){
@@ -172,12 +185,36 @@ var public_api = {
         $('#'+target).after(_panoramicView.render().el);
 
         $('#panoramic_' + self._panoramics.length + ' #create_panoramic').bind('click', function(){
-            alert('create_panoramic');
+            //console.log($(this).parent().parent().attr('id').replace('panoramic_',''));
+            var panoramic_id = $(this).parent().parent().attr('id').replace('panoramic_','');
+            console.log(self._parnoamics_articles[parseInt(panoramic_id)]);
+            var panoramic_label = $(this).parent().parent().find('#label').val();
+            if(panoramic_label == ''){
+                lv_ui.alert_component(
+                    {
+                        title:"error",
+                        message:"You must edit panoramic label before...",
+                        buttons:[
+                            {color:"red", label:"ok"}
+                        ]
+                    },
+                    function(e){
+                        console.log(e);
+                    }
+                );
+                return false;
+            }
+            var articles_list = [];
+            for(var i=0; i<self._parnoamics_articles[parseInt(panoramic_id)].length; i++){
+                articles_list.push(self._articles[self._parnoamics_articles[parseInt(panoramic_id)][i]].id);
+            }
+            var pano_object = $(this).parent().parent();
+            console.log('articles list = ', articles_list);
+            self.savePanoramic(pano_object, articles_list, panoramic_label);
         });
 
         $( "#panoramic_"+self._panoramics.length ).droppable({
             drop: function(event, ui) {
-                //console.log( ui.helper[0].nextElementSibling.id);
                 //console.log( event );
                 //console.log( ui );
                 var artId = ui.helper[0].id.replace('art_', '');
@@ -193,7 +230,7 @@ var public_api = {
         var artId = article.replace('art_','');
             artId = artId.replace('article_','');
 
-        this._panoramic_longPress[self._panoramics.length] = new long_press("panoramic_"+self._panoramics.length);
+        //this._panoramic_longPress[self._panoramics.length] = new long_press("panoramic_"+self._panoramics.length);
         self.appendToPanoramic(self._panoramics.length, artId);
         //$('#panoramic_0 .container').append("<article>"+$('#'+target).html()+"</article>");
         //$('#panoramic_0 .container').append("<article>"+$('#'+article).html()+"</article>");
@@ -208,7 +245,7 @@ var public_api = {
         $('#panoramic_'+panoramicId+' .container').append('<div class="thumb" id="article_'+objectId+'" style="background-image:url('+this._articles[objectId].url+');"></div>');
         $( "#panoramic_"+panoramicId+" #article_"+objectId ).draggable({
             start: function( event, ui ) {
-                $(this).css('z-index', '9');
+                $(this).css('z-index', '999');
                 //self.openDropZone();
             },
             stop: function( event, ui ) {
@@ -219,6 +256,9 @@ var public_api = {
                 $(this).css('z-index', '1');
             }
         });
+        if(!this._parnoamics_articles[panoramicId])
+            this._parnoamics_articles[panoramicId] = [];
+        this._parnoamics_articles[panoramicId].push(objectId);
     },
     replaceAll : function(){
         for(var i=0; i<this._cols; i++){
@@ -231,9 +271,52 @@ var public_api = {
             });
         }
     },
+    savePanoramic : function(panoramic_object, articles_list, panoramic_label){
+        var self = this;
+        params = {
+            articles : articles_list,
+            label : panoramic_label
+        };
+        utilities.load_service(
+            "panoramic_manager/panoramic_create",
+            params,
+            function(response){
+                lv_ui.destroyElement(
+                    panoramic_object,
+                    function(e){
+                        self.replaceAll();
+                    }
+                );
+            }
+        );
+    },
+    addArticleLike : function(article_id){
+        utilities.load_service(
+            "public_api/add_article_like",
+            {
+                article_id : article_id
+            },
+            function(response){
+                if(response.message && response.title){
+
+                }
+            }
+        );
+    },
+    addArticleView : function(article_id){
+        utilities.load_service(
+            "public_api/add_article_view",
+            {
+                article_id : article_id
+            },
+            function(response){
+
+            }
+        );
+    },
     openDropZone : function(){
         TweenMax.to($('.panoramic_drop_zone'), .5, {
-            css:{height:'240px'}, ease:Power4.easeOut
+            css:{height:'280px'}, ease:Power4.easeOut
         });
     },
     closeDropZone : function(){
@@ -242,7 +325,108 @@ var public_api = {
         });
     },
     activeDropZone : function(){
+        var self = this;
+        $('.panoramic_drop_zone').droppable({
+            drop: function(event, ui) {
+                if(self._dropped_articles == null){
+                    self._dropped_articles = [];
+                    $('.panoramic_drop_zone .zone').html('');
+                }
 
+                self._dropLocked = true;
+                console.log($('#'+ui.helper[0].id).hasClass( "selected_article" ));
+                if($('#'+ui.helper[0].id).hasClass( "selected_article" )){
+                    //si l'article est selectionné, on ajoute tout les articles selectionnés à la pile
+                    $('.selected_article').each(function( index ) {
+                        $(this).remove();
+                        console.log( index +" "+$(this).attr('id') );
+                        self._dropped_articles.push(self._articles[$(this).attr('id').replace('art_','')].id);
+                        $('.panoramic_drop_zone .zone').append("<div class='small_preview' id='preview_"+self._dropped_articles.length+"' style='background-image:url("+self._articles[$(this).attr('id').replace('art_','')].url+");'></div>");
+                        $('#preview_'+self._dropped_articles.length).on('click', function(){
+                            lv_ui.alert_component(
+                                {
+                                    title:"Panoramic",
+                                    message:"Do you want to remove this article from this selection.",
+                                    buttons:[
+                                        {color:"red", label:"yes"},
+                                        {color:"red", label:"no"}
+                                    ]
+                                },
+                                function(e){
+                                    if(e==0){
+                                        var index = parseInt($(this).attr('id').replace('preview_',''));
+                                        self._dropped_articles.splice(index, 1);
+                                        $(this).remove();
+                                        console.log(self._dropped_articles);
+                                    }
+                                }
+                            );
+                        });
+                    });
+                    //self.createPanoramic(ui.helper[0].id, $(this).attr('id'));
+                }else{
+                    // transform: scale(.25); -webkit-transform:scale(.25); -ms-transform:scale(.25)
+                    //$('.panoramic_drop_zone .zone').append('<article style="left:0; top:0;">'+$('#'+ui.helper[0].id).html()+"</article>");
+                    // si l'article n'est pas selectionné, on l'ajoute à la pile
+                    $('#'+ui.helper[0].id).remove();
+                    self._dropped_articles.push(self._articles[ui.helper[0].id.replace('art_','')].id);
+                    $('.panoramic_drop_zone .zone').append("<div class='small_preview' id='preview_"+self._dropped_articles.length+"' style='background-image:url("+self._articles[ui.helper[0].id.replace('art_','')].url+");'></div>");
+                    console.log(ui.helper[0].id);
+                    $('#preview_'+self._dropped_articles.length).on('click', function(){
+                        var obj_to_edit = $(this);
+                        lv_ui.alert_component(
+                            {
+                                title:"Panoramic",
+                                message:"Do you want to remove this article from this selection.",
+                                buttons:[
+                                    {color:"red", label:"yes"},
+                                    {color:"red", label:"no"}
+                                ]
+                            },
+                            function(e){
+                                if(e==0){
+                                    var index = parseInt(obj_to_edit.attr('id').replace('preview_',''));
+                                    self._dropped_articles.splice(index, 1);
+                                    obj_to_edit.remove();
+                                    console.log(self._dropped_articles);
+                                }
+                            }
+                        );
+                    });
+                }
+                self.replaceAll();
+            }
+        });
+        $('.panoramic_drop_zone #drop_zone_save_button').on('click', function(){
+            if($('#drop_zone_label').val() == ''){
+                lv_ui.alert_component(
+                    {
+                        title:"error",
+                        message:"You must edit panoramic label before...",
+                        buttons:[
+                            {color:"red", label:"ok"}
+                        ]
+                    },
+                    function(e){
+                        console.log(e);
+                    }
+                );
+                return false;
+            }
+            params = {
+                articles : self._dropped_articles,
+                label : $('#drop_zone_label').val()
+            };
+            utilities.load_service(
+                "panoramic_manager/panoramic_create",
+                params,
+                function(response){
+                    self._dropped_articles = null;
+                    self.closeDropZone();
+                    $('.panoramic_drop_zone .zone').html('p');
+                }
+            );
+        });
     },
     getImageUri : function(url){
         if(url.indexOf("http") != -1)
@@ -277,5 +461,22 @@ var public_api = {
         }else{
             return str.substr(0,75) + '(...)';
         }
+    },
+    getUserPanoramics : function(){
+        utilities.load_service(
+            "panoramic_manager/get",
+            {},
+            function(response){
+                console.log("user panoramics  = ", response);
+                for(var i= 0; i<response.length; i++){
+                    //get_template('user_panoramic_list');
+                    lv_ui.get_template({name:"panoramic_list_template", tagName : "li", attr:"", values:response[i], target:$('#user_panoramic_list')});
+                }
+                //self._dropped_articles = null;
+                //self.closeDropZone();
+                //$('.panoramic_drop_zone .zone').html('p');
+            }
+        );
     }
 }
+public_api.init();

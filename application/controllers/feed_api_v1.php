@@ -1,10 +1,15 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Feed_Api_V1 extends CI_Controller {
-	public function __construct(){
+    public $_auth_mandatory = true;
+    public $_user_id;
+    public function __construct(){
 		parent::__construct();
         header('Access-Control-Allow-Origin: *');
         header('X-Frame-Options: DENY');
+        $this->lang->load('feed_api', 'en');
+        $this->load->model('feed_models/types_model');
+        $this->load->helper('auth_helper');
 	}
 	public function index()
 	{
@@ -13,75 +18,67 @@ class Feed_Api_V1 extends CI_Controller {
 
 	public function add_type(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/types_model');
 		$result = $this->types_model->add($post);
-		echo "added";
-		die();
+        send_response($result,"200");
+		return;
 	}
 	public function edit_type(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/types_model');
 		$result = $this->types_model->update($post);
-		echo $result;
-		die();
+        send_response($result,"200");
+		return;
 	}
 	public function remove_type(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/types_model');
 		$result = $this->types_model->remove($post);
-		echo $result;
-		die();
+        send_response($result,"200");
+        return;
 	}
 	public function get_types_list(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/types_model');
 		$result = $this->types_model->get($post);
-		$this->send_response($result);
-		//echo json_encode($result);
+        send_response($result,"200");
+        return;
 	}
 	public function add_source(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/sources_model');
 		$result = $this->sources_model->add($post);
-		echo "added";
-		//var_dump($result);
-		//$this->send_response($result);
+        send_response($result,"200");
+        return;
 	}
 	public function edit_source(){
 		$post = $this->input->post();
 		$this->load->model('feed_models/sources_model');
 		$result = $this->sources_model->update($post);
-		echo "update";
-		//var_dump($result);
-		//$this->send_response($result);
-	}
+        send_response($result,"200");
+        return;
+    }
 	public function remove_source(){
 		$post = $this->input->post();
-		$this->load->model('feed_models/sources_model');
 		$result = $this->sources_model->remove($post);
-		echo "removed";
-		//var_dump($result);
-		//$this->send_response($result);
+        send_response($result,"200");
+        return;
 	}
 	public function get_sources_list(){
 		$post = $this->input->post();
 		$this->load->model('feed_models/sources_model');
 		$result = $this->sources_model->get($post);
-		$this->send_response($result);
+        send_response($result,"200");
+        return;
 	}
 	public function add_url(){
 		$post = $this->input->post();
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->add($post);
-		echo "added";
-		//var_dump($result);
-		//$this->send_response($result);
+        send_response($result,"200");
+        return;
 	}
 	public function edit_url(){
 		$post = $this->input->post();
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->update($post);
-		echo "update";
+        send_response($result,"200");
+        return;
 		//var_dump($result);
 		//$this->send_response($result);
 	}
@@ -89,7 +86,8 @@ class Feed_Api_V1 extends CI_Controller {
 		$post = $this->input->post();
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->remove($post);
-		echo "removed";
+        send_response($result,"200");
+        return;
 		//var_dump($result);
 		//$this->send_response($result);
 	}
@@ -97,14 +95,7 @@ class Feed_Api_V1 extends CI_Controller {
 		$post = $this->input->post();
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->get($post);
-		$this->send_response($result);
-	}
-	public function send_response($data){
-		//echo "send response";
-		//echo json_encode($data);
-        $this->output->set_status_header("200");
-        //$this->response($data, $httpCode);
-        $this->output->set_output(json_encode(array("data"=>$data)));
+        send_response($result,"200");
         return;
 	}
     public function get_image_size($img){
@@ -252,23 +243,26 @@ class Feed_Api_V1 extends CI_Controller {
                 $this->save_image_thumb($UploadDirectory.$NewFileName, 75, $NewFileName);
                 $this->save_image_thumb($UploadDirectory.$NewFileName, 100, $NewFileName);
                 $this->save_image_thumb($UploadDirectory.$NewFileName, 200, $NewFileName);
-                die(json_encode(Array("code"=>200, "id"=>$result)));
+                send_response($result,"200");
+                return;
             }else{
-                die('error uploading File!');
+                send_response(array('message'=>"error image upload"),"400");
+                return;
             }
 
         }
         else
         {
-            die('Something wrong with upload! Is "upload_max_filesize" set correctly?');
+            send_response(array('message'=>'Something wrong with upload! Is "upload_max_filesize" set correctly?'),"400");
+            return;
         }
     }
     public function save_image_from_web($options = null){
         $options = $this->input->post();
         //$options
         if(!isset($options['image_url'])){
-            echo "you must define image uri";
-            return "error";
+            send_response(array('message'=>'you must define image uri'),"400");
+            return;
         }
 
         $img_to_upload = $options['image_url'];
@@ -292,9 +286,8 @@ class Feed_Api_V1 extends CI_Controller {
         );
         $this->load->model('feed_models/medias_model');
         $result = $this->medias_model->add($options);
-        //$response = json_encode(Array("code"=>200, "id"=>$result));
-        //echo $response;
-        die(json_encode(Array("code"=>200, "id"=>$result)));
+        send_response($result,"400");
+        return;
     }
     public function save_image_thumb($img, $w, $imgName){
         $filename = $img;
@@ -347,13 +340,16 @@ class Feed_Api_V1 extends CI_Controller {
         $options = $this->input->post();
         $this->load->model('feed_models/articles_model');
         $article_id = $this->articles_model->add($options);
-        return json_encode(Array("code"=>200, "article_id"=>$article_id));
+        send_response(array('article_id'=>$article_id), "200");
+        return;
     }
     public function get_article(){
+        $this->_auth_mandatory = false;
         $options = $this->input->post();
         $this->load->model('feed_models/articles_model');
         $list = $this->articles_model->get($options);
-        $this->send_response(Array("code"=>200, "data"=>$list));
+        send_response($list, "200");
+        return;
         //die(json_encode(Array("code"=>200, "data"=>$list)));
     }
 }

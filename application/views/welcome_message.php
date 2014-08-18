@@ -32,8 +32,8 @@
 
 <div id="container">
 	<header>
-        <img src="http://localhost/~simondelamarre/LV/www/images/assets/icon_1024.png" height="250" alt="app icon landscape viewer"/><br/><br/><br/><br/>
-        <img src="http://localhost/~simondelamarre/LV/www/images/assets/logos/logo_white_trsp_405.png" alt="logo landscape viewer"/><br/><br/><br/>
+        <img src="./images/assets/icon_1024.png" height="250" alt="app icon landscape viewer"/><br/><br/><br/><br/>
+        <img src="./images/assets/logos/logo_white_trsp_405.png" alt="logo landscape viewer"/><br/><br/><br/>
         <h2>All your favorites on a page is coming soon.</h2>
 	</header>
 </div>

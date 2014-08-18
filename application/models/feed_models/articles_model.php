@@ -47,18 +47,72 @@ class Articles_Model extends CI_Model{
         return false;
     }
 	public function get($options){
+        $this->db->select("feed_articles.id as id, id_source, feed_articles.id_type as id_type, title, info_object, date, image_id, link, view, liked, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height, feed_sources.label, feed_sources.icon, feed_sources.description, source_media.url as source_icon");
         if(isset($options['link']))
             $this->db->where('link', $options['link']);
+        if(isset($options['title']))
+            $this->db->where('title', $options['title']);
+        if(isset($options['search'])){
+            foreach($options['search'] as $search){
+                $this->db->like('info_object', $search);
+                $this->db->like('feed_sources.label', $search);
+            }
+        }
         $this->db->from('feed_articles');
         //$this->db->where('feed_articles.id_type', 33);
         //$this->db->or_where('feed_articles.id_type', 34);
         //$this->db->or_where('feed_articles.id_type', 35);
         //$this->db->or_where('feed_articles.id_type', 36);
-        //$this->db->order_by("feed_articles.id", "desc");
-        $this->db->limit(100,0);
+        $this->db->order_by("id", "desc");
+        if(!isset($options['limit'])){
+            $this->db->limit(100,0);
+        }else{
+            $this->db->limit($options['limit'],0);
+        }
         $this->db->join('feed_media', 'feed_media.id = feed_articles.image_id');
         $this->db->join('feed_sources', 'feed_sources.id = feed_articles.id_source');
+        $this->db->join('feed_media as source_media', 'source_media.id = feed_sources.icon');
         $result = $this->db->get();
 		return $result->result_array();
+    }
+    public function add_like($options){
+        $this->db->where('user_id', $options['user_id']);
+        $this->db->where('article_id', $options['article_id']);
+        $canLike = $this->db->get('lv_user_likes');
+        $last = $this->db->last_query();
+        if(count($canLike->result_array())==0){
+            if(isset($options['article_id'])){
+                $this->db->where('id', $options['article_id']);
+                $this->db->set('liked', 'liked+1', FALSE);
+                $this->db->update('feed_articles');
+                $like_data = array(
+                    "user_id"=>$options['user_id'],
+                    "article_id"=>$options['article_id']
+                );
+                $this->db->insert('lv_user_likes', $like_data);
+            }
+        }else{
+            return array('title'=>'impossible', 'message'=>'already_liked');
+        }
+    }
+    public function add_view($options){
+        $this->db->where('user_id', $options['user_id']);
+        $this->db->where('article_id', $options['article_id']);
+        $canLike = $this->db->get('lv_user_views');
+        $last = $this->db->last_query();
+        if(count($canLike->result_array())==0){
+            if(isset($options['article_id'])){
+                $this->db->where('id', $options['article_id']);
+                $this->db->set('view', 'view+1', FALSE);
+                $this->db->update('feed_articles');
+                $view_data = array(
+                    "user_id"=>$options['user_id'],
+                    "article_id"=>$options['article_id']
+                );
+                $this->db->insert('lv_user_viewss', $view_data);
+            }
+        }else{
+            return array('title'=>'impossible', 'message'=>'already_viewed');
+        }
     }
 }

@@ -14,19 +14,19 @@
    <link href="<?php echo base_url(); ?>styles/lv_font/landscapeviewerfont-regular.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/landscape_viewer_color_pack.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
-    <link href="<?php echo base_url(); ?>styles/lv_ui.css" rel="stylesheet" type="text/css"/>
-    <?php
-        if (isset($css)) {
-            foreach($css as $file_css) {
-                echo '<link href="'.base_url().$file_css.'" rel="stylesheet" type="text/css" />'."\n";
-            }
-        }
-    ?>
-    <!-- FILE UPLOAD PLUGIN -->
-    <!-- Google web fonts
-    <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
-    <link href="plugins/file_upload/assets/css/style.css" rel="stylesheet" />
-    END FILE UPLOAD PLUGIN -->
+   <link href="<?php echo base_url(); ?>styles/lv_ui.css" rel="stylesheet" type="text/css"/>
+   <?php
+       if (isset($css)) {
+           foreach($css as $file_css) {
+               echo '<link href="'.base_url().$file_css.'" rel="stylesheet" type="text/css" />'."\n";
+           }
+       }
+   ?>
+   <!-- FILE UPLOAD PLUGIN -->
+   <!-- Google web fonts
+   <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
+   <link href="plugins/file_upload/assets/css/style.css" rel="stylesheet" />
+   END FILE UPLOAD PLUGIN -->
 
 
 </head>
@@ -34,7 +34,7 @@
     <div class="lv_component"></div>
     <header class="red">
         <div class="line logo">
-            <img src="<?php echo base_url(); ?>images/assets/logos/logo_white_trsp_405.png" width="405px" alt="logo landscape viewer 2014"/>
+            <img src="<?php echo base_url(); ?>images/assets/logos/logo_white_trsp_405.png" height="150px" alt="logo landscape viewer 2014"/>
         </div>
         <div class="line">
             <span class="baseLine">All your favorites on a page.</span>
@@ -44,7 +44,16 @@
             <div class="searchButton redfont">S</div>
         </div>
         <div class="line center">
-            <span class="download_icon"><img src="<?php echo base_url(); ?>images/assets/icon_75.png" alt="landscape viewer app icon" height="50px"/></span><span class="download_links"><a href="apple" class="animated">a</a><a href="google" class="animated">â</a><a href="wp" class="animated">ä</a></span>
+            <span class="download_icon">
+                <img src="<?php echo base_url(); ?>images/assets/icon_75.png" alt="landscape viewer app icon" height="50px"/>
+            </span>
+            <span class="download_links">
+                <a href="/download_the_app" class="animated">a</a>
+                <a href="/download_the_app" class="animated">â</a>
+                <a href="/download_the_app" class="animated">ä</a>
+            </span>
+        </div>
+        <div class="line center">
             <span class="shortDesc dark">Available on the App Store, Windows Phone and Google Play. Download the App now.</span>
         </div>
     </header>
@@ -53,18 +62,22 @@
             <img src="<?php echo base_url(); ?>images/assets/logos/landscape_viewer_header_logo.png" height="60px"/>
         </div>
         <ul>
-            <li>
-                <span class="icon">N</span>Get the app
-            </li>
+            <a href="/download_the_app">
+                <li>
+                    <span class="icon">N</span>Get the app
+                </li>
+            </a>
             <?php
 
                 if($session == false){
-                    echo '<li><span class="icon">N</span>Login</li>';
+                    echo '<a href="/login"><li><span class="icon">N</span>Login</li></a>';
                 }
             ?>
-            <li>
-                <span class="icon">f</span>Advenced Search
-            </li>
+            <a href="/advanced_search">
+                <li>
+                    <span class="icon">f</span>Advenced Search
+                </li>
+            </a>
         </ul>
         <div class="refreshBar">
             <div class="progress red"></div>

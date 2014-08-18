@@ -41,6 +41,7 @@ long_press.prototype.init = function(){
 
     jQuery( "#"+this._objectId ).on( 'mouseup', function( e ) {
         if(self._isLongPress){
+            $('#'+self._objectId).addClass('selected_article');
             $('#'+self._objectId+' .selected_frame').css('display', 'block');
         }
         self.destroyDelayedPress();
@@ -56,7 +57,7 @@ long_press.prototype.destroyDelayedPress = function(){
     $(document).off('mousemove');
     $('.long_press_canvas_content').remove();
     this._delayedSelection.value = 0;
-    this._delayedMotion.kill();
+    //this._delayedMotion.kill();
     this._delayedMotion = null;
 }
 long_press.prototype.startDelayedPress = function(){

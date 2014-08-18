@@ -11,7 +11,7 @@
  */
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Panoramic_Model extends CI_Model{
+class Panoramics_model extends CI_Model{
     public function __construct()
     {
         parent::__construct();
@@ -24,7 +24,7 @@ class Panoramic_Model extends CI_Model{
         $data = array();
         $data['user_id'] = $options['user_id'];
         $data['label'] = $options['label'];
-        if(isset($options['articles']))
+        if(isset($options['description']))
             $data['description'] = $options['description'];
 
         $this->db->insert('lv_panoramic', $data);
@@ -66,10 +66,12 @@ class Panoramic_Model extends CI_Model{
         return $query->result_array();
     }
     public function get($options){
+        //lv_panoramic_article.article_id,
+        $this->db->select('lv_panoramic.id as id, label, description, COUNT(lv_panoramic.id) as total');
         if(isset($options['panoramic_id']))
             $this->db->where('id', $options['panoramic_id']);
         if(isset($options['user_id']))
-            $this->db->where('id', $options['user_id']);
+            $this->db->where('user_id', $options['user_id']);
         if(isset($options['search'])){
             $search = explode(" ", $options['search']);
             foreach ($search as $search_ar){
@@ -77,13 +79,16 @@ class Panoramic_Model extends CI_Model{
                 $this->db->like('description', $search_ar);
             }
         }
-        if(isset($options['limit'])){
+        /*if(isset($options['limit'])){
             if(isset($options['offset']))
                 $this->db->limit($options['limit'], $options['offset']);
             else
                 $this->db->limit($options['limit']);
-        }
+        }*/
+        $this->db->join('lv_panoramic_article', 'lv_panoramic.id = lv_panoramic_article.panoramic_id');
+        $this->db->group_by('lv_panoramic.id');
         $query = $this->db->get('lv_panoramic');
+        //$lastquery = $this->db->last_query();
         return $query->result_array();
     }
 }

@@ -7,7 +7,31 @@ class Auth_Model extends CI_Model{
 		parent::__construct();
 		$this->load->database();
 	}
-	public function add($options){
+    public function create_session($options){
+        $user_request = $this->get(array('email'=>$options['email'], 'password'=>$options['password']));
+        if(count($user_request) != 1){
+            return false;
+        }
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randomString = '';
+        for ($i = 0; $i < 10; $i++) {
+            $randomString .= $characters[rand(0, strlen($characters) - 1)];
+        }
+        $this->db->where('email', $options['email']);
+        $this->db->where('password', $options['password']);
+        $this->db->set('auth_token', hash('sha256', $randomString));
+        $this->db->set('auth_provider', $options['auth_provider']);
+        $this->db->update('lv_users');
+        $this->get(array('email'=>$options['email'], 'password'=>$options['password'], 'auth_token'=>$options['auth_token']));
+    }
+    public function valid_session($options){
+        $user_request = $this->get(array('id'=>$options['user_id'], 'auth_token'=>$options['auth_token']));
+        if(count($user_request) != 1){
+            return false;
+        }
+        return true;
+    }
+    public function add($options){
         if(!isset($options['page_name']) or !isset($options['email']) or !isset($options['password']))
             return 401;
         $this->db->where('page_name', strtolower($options['page_name']));

@@ -24,8 +24,11 @@
     </div>
     <div class="panoramic_drop_zone">
         <div class="zone">P</div>
+        <div class="line">
+            <input type="text" id="drop_zone_label" placeholder="panoramic name"/>
+        </div>
         <div class="footer">
-            <button class="lightButton">
+            <button class="lightButton" id="drop_zone_save_button">
                 <span class="icon">N</span>
                 save
             </button>
@@ -37,10 +40,10 @@
         <div class="selected_icon">h</div>
     </div>
     <div class="article_header_menu">
-        <button class="button">1</button>
-        <button class="button">2</button>
-        <button class="button">3</button>
-        <button class="button">A</button>
+        <button class="button" id="pinterest_share_article">1</button>
+        <button class="button" id="twitter_share_article">2</button>
+        <button class="button" id="fb_share_article">3</button>
+        <button class="button" id="like_article" onClick="public_api.addArticleLike(<%= id %>)">A</button>
     </div>
     <header style="background:<%= dominante %>; width:<%= width %>px; height:<%= height %>px; <% if(height==0){ %><%= "display:none;"%><% } %>" data-ground="<%= url %>">
         <div class="image_header"></div>
@@ -48,22 +51,22 @@
     <div class="title"><%= title %></div>
     <div class="short_text"><%= short_desc %></div>
     <div class="infos">
-        <div class="liked"><span class="icon">A</span>2305</div>
-        <div class="viewed"><span class="icon">É</span>45009</div>
+        <div class="liked"><span class="icon">A</span><%= liked %></div>
+        <div class="viewed"><span class="icon">É</span><%= view %></div>
     </div>
     <div class="source">
-        <div class="thumb" style="background-image:url(<%= icon %>);"></div>
+        <div class="thumb" style="background-image:url(<%= source_icon %>);"></div>
         <div class="label"><%= label %></div>
         <div class="date"><%= new Date(parseInt(date)).toLocaleString() %></div>
     </div>
 </script>
 <script type="text/template" id="panoramic_template">
     <div class="selected_frame">
-        <div class="selected_icon" onclick="$(this).parent().css('display', 'none');">û</div>
-        <div class="selected_icon">h</div>
+        <div class="selected_icon" id="break_link"onclick="$(this).parent().css('display', 'none'); $(this).parent().parent().removeClass('selected_article');">û</div>
+        <div class="selected_icon" id="linked">h</div>
     </div>
     <div class="panoramic_header">
-        <input type="text" placeholder="panoramic"/>
+        <input type="text" placeholder="panoramic" id="label"/>
         <button class="panoramic_header_button">ù</button>
         <button class="panoramic_header_button">o</button>
     </div>

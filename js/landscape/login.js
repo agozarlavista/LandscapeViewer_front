@@ -18,7 +18,11 @@ var login = {
                 email : $('#login #email').val(),
                 password : $('#login #pwd').val()
             };
-            utilities.load_service("public_api/auth", params, function(response){console.log(response)});
+            utilities.load_service("public_api/auth", params, function(response){
+                console.log(response);
+                utilities.saveLocalSession('lv_user', JSON.stringify(response));
+                window.location.replace(utilities.defaultUri);
+            });
             //post service
         });
         $('#register_action').bind('click', function(){
