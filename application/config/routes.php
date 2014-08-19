@@ -47,6 +47,7 @@ $route['rest/:any'] = "public_api";
 $route['front'] = "front";
 $route['front/:any'] = "front";
 */
+$route['download_the_app'] = "download";
 $route['page'] = "page";
 $route['page/:any'] = "page";
 $route['article'] = "article";

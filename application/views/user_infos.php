@@ -7,9 +7,9 @@
  */
 ?>
 <div class="like_article col_0" id="profile_options">
-    <div class="line">
+    <div class="line" id="page_link">
         <div class="avatar"></div>
-        Simon
+        <span id="pseudo">Simon</span>
     </div>
     <div class="line">
         <div class="icon">f</div>
@@ -34,9 +34,9 @@
         <span class="font_grey">Friends interests</span>
     </div>
     <div class="line last center">
-        <button class="lightButton">
+        <button class="lightButton" onclick="window.location.href='/page'">
             <span class="icon">N</span>
-            Invite Friends
+            Search Friends
         </button>
     </div>
 </div>

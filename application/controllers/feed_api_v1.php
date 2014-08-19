@@ -145,6 +145,7 @@ class Feed_Api_V1 extends CI_Controller {
         return $rAverage.','.$gAverage.','.$bAverage;
     }
     public function file_upload(){
+        $this->_auth_mandatory = false;
         if(isset($_FILES))
         {
             ############ Edit settings ##############

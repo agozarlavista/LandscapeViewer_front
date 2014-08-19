@@ -85,7 +85,7 @@ class Public_Api extends CI_Controller {
         $query = $this->auth_model->add($post);
         $this->_auth_mandatory = true;
         $this->_user_id = $query[0]['id'];
-        $this->send_response($query, "200");
+        send_response($query, "200");
     }
     public function add_article_like(){
         $params = $this->input->post();

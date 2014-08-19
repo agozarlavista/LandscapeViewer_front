@@ -48,6 +48,8 @@ class Articles_Model extends CI_Model{
     }
 	public function get($options){
         $this->db->select("feed_articles.id as id, id_source, feed_articles.id_type as id_type, title, info_object, date, image_id, link, view, liked, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height, feed_sources.label, feed_sources.icon, feed_sources.description, source_media.url as source_icon");
+        if(isset($options['id']))
+            $this->db->where('feed_articles.id', $options['id']);
         if(isset($options['link']))
             $this->db->where('link', $options['link']);
         if(isset($options['title']))
@@ -59,7 +61,7 @@ class Articles_Model extends CI_Model{
             }
         }
         $this->db->from('feed_articles');
-        //$this->db->where('feed_articles.id_type', 33);
+        $this->db->where('feed_articles.id_type', 33);
         //$this->db->or_where('feed_articles.id_type', 34);
         //$this->db->or_where('feed_articles.id_type', 35);
         //$this->db->or_where('feed_articles.id_type', 36);

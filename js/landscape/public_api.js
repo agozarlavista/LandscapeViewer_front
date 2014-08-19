@@ -129,9 +129,19 @@ var public_api = {
                     if($(e.target).attr('id') === undefined){
                         //alert(self._articles[$(this).attr('id').replace('art_', '')].title);
                         //alert('redirect to article page encode uri /article/article_name');
-                        var adress = escape(encodeURI(self._articles[$(this).attr('id').replace('art_', '')].title.split(' ').join('_')));
+                        var string = self._articles[$(this).attr('id').replace('art_', '')].title;
+                        var specialChars = new Array(
+                            'à','á','â','ã','ä','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ',':',';','.',',',"'",'/','\\',' ','  ','!','?','(',')', '«', '»'
+                        );
+                        var replaceChars = new Array(
+                            'a','a','a','a','a','c','e','e','e','e','i','i','i','i','n','o','o','o','o','o','u','u','u','u','y','y',' ',' ',' ',' ',' ',' ','  ','_','__',' ',' ',' ',' ', '', ''
+                        );
+                        for(var i=0; i<specialChars.length; i++){
+                            string = string.split(specialChars[i]).join(replaceChars[i]);
+                        }
+                        var adress = escape(encodeURI(string.split(' ').join('_')));
                         //adress =  adress.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-                        window.location.href = utilities.defaultUri+"article/"+adress;
+                        window.location.href = utilities.defaultUri+"article/"+adress+'-article-'+self._articles[$(this).attr('id').replace('art_', '')].id;
                     }
                 }
             });
@@ -463,6 +473,7 @@ var public_api = {
         }
     },
     getUserPanoramics : function(){
+        var self = this;
         utilities.load_service(
             "panoramic_manager/get",
             {},
@@ -472,6 +483,7 @@ var public_api = {
                     //get_template('user_panoramic_list');
                     lv_ui.get_template({name:"panoramic_list_template", tagName : "li", attr:"", values:response[i], target:$('#user_panoramic_list')});
                 }
+                self.replaceAll();
                 //self._dropped_articles = null;
                 //self.closeDropZone();
                 //$('.panoramic_drop_zone .zone').html('p');

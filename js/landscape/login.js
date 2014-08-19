@@ -26,6 +26,7 @@ var login = {
             //post service
         });
         $('#register_action').bind('click', function(){
+            console.log(self.loginParams);
             self.loginParams.page_name = $('#register #lv_id').val();
             self.loginParams.email = $('#register #email').val();
             self.loginParams.password = $('#register #pwd').val();
@@ -51,7 +52,7 @@ var login = {
                 this.on("success", function(file, response) {
                     console.log(file);
                     console.log(response);
-                    self.loginParams.avatar = JSON.parse(response).id;
+                    self.loginParams.avatar = JSON.parse(response).data;
                 });
                 this.on("progress", function(e) {
                     console.log(e);
