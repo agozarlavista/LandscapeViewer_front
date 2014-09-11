@@ -1,0 +1,86 @@
+
+.advancedSearchBar{
+    width:100%;
+    height:0;
+    overflow: hidden;
+    float:left;
+    background-color:#F9F9F9;
+}
+.advancedSearchBar .col{
+    width:250px;
+    float:left;
+    border-right:1px solid #E3E3E3;
+    overflow: hidden;
+}
+.advancedSearchBar .col .title{
+    color:#333;
+    padding:10px;
+    font-size: 24px;
+}
+.advancedSearchBar ul{
+    width:100%;
+}
+.advancedSearchBar .col ul li{
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    padding-left: 5%;
+    padding-right: 5%;
+    color:#999;
+    background-color: #FFF;
+    border-bottom: 1px solid #E3E3E3;
+}
+.advancedSearchBar .col ul li .list_icon{
+    width: 25px;
+    height: 25px;
+    margin-top:5px;
+    margin-right: 10px;
+    background-size: cover;
+    background-position: center center;
+    display: block;
+    float: left;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+.advancedSearchBar .col ul li.selected{
+    background-color : #E3E3E3;
+}
+.advancedSearchBar .col ul li:hover{
+    background-color : #F0F0F0;
+}
+.wrapper{
+    overflow: hidden;
+    height:100%;
+}
+.saving_bar{
+    width: 100%;
+    height: 60px;
+    bottom: 45px;
+    background-color: #FFF;
+    border-top: 1px solid #E3E3E3;
+    float:left;
+}
+.advancedSearchBar .col ul li input[type='checkbox']{
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:20px;
+    height:20px;
+    background-color: #FFF;
+    /*-webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;*/
+}
+
+/*[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+    content: '✔';
+    position: absolute;
+    top: 0; left: 4px;
+    font-size: 14px;
+    color: #09ad7e;
+    transition: all .2s;
+}*/

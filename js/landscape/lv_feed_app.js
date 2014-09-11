@@ -31,7 +31,6 @@ var landscapeViewerFeed = {
         //landscapeViewerFeed.loadPage();
         //}
 
-        //alert('loadpage');
         //var feed = new google.feeds.Feed("http://www.zeutch.com/feed?paged="+this.page);
         //var feed = new google.feeds.Feed("http://www.lemonde.fr/rss/une.xml");
         //var feed = new google.feeds.Feed("http://rss.lefigaro.fr/lefigaro/laune?format=xml");
@@ -112,22 +111,18 @@ var landscapeViewerFeed = {
 
 
         feed.load(function(result) {
-            //alert(JSON.stringify(result));
             console.log(JSON.stringify(result));
             if (!result.error && result.status.code == 200) {
                 landscapeViewerFeed.parseForApp(result);
             }else{
                 callBack({error:result.status.code});
-                //alert("error = "+JSON.stringify(result));
             }
         });
     },
     parseForApp : function(result){
         var parsedResult = [];
         var container = document.getElementById("feed");
-        //alert(result.feed.entries.length);
         for (var i = 0; i < result.feed.entries.length; i++) {
-            //alert(result.feed.entries[i].content);
             var saveContent = result.feed.entries[i].content;
             //console.log(i);
             result.feed.entries[i].images = this.getImages(result.feed.entries[i].content);
@@ -140,9 +135,7 @@ var landscapeViewerFeed = {
             parsedResult.push(result.feed.entries[i]);
         }
         this.searchList = parsedResult;
-        //alert(JSON.stringify(this.searchList));
         //wp.lastWpSearch = this.searchList;
-        //alert(JSON.stringify(this.searchList));
         //wp.addGrid(this.searchList);
         //wp.whoList(this.searchList);
         this.callBack(this.searchList);
@@ -207,8 +200,6 @@ var landscapeViewerFeed = {
     getVideos : function(str){
         var videos = [];
         var stripLinks = str.split('<iframe');
-        //alert(stripLinks);
-        //alert(stripLinks.length);
         for(var m=0; m<stripLinks.length; m++){
             var SRC = stripLinks[m].split('src=\"');
             if(SRC.length>1){

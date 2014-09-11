@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/~simondelamarre/LV/www/';
+$config['base_url']	= 'http://landscape-viewer.local';
 
 /*
 |--------------------------------------------------------------------------

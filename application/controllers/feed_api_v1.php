@@ -1,7 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class Feed_Api_V1 extends CI_Controller {
-    public $_auth_mandatory = true;
+    public $_auth_mandatory = false;
     public $_user_id;
     public function __construct(){
 		parent::__construct();
@@ -9,6 +9,7 @@ class Feed_Api_V1 extends CI_Controller {
         header('X-Frame-Options: DENY');
         $this->lang->load('feed_api', 'en');
         $this->load->model('feed_models/types_model');
+        $this->load->model('feed_models/sources_model');
         $this->load->helper('auth_helper');
 	}
 	public function index()
@@ -35,6 +36,7 @@ class Feed_Api_V1 extends CI_Controller {
         return;
 	}
 	public function get_types_list(){
+        $this->_auth_mandatory = false;
 		$post = $this->input->post();
 		$result = $this->types_model->get($post);
         send_response($result,"200");
@@ -60,6 +62,7 @@ class Feed_Api_V1 extends CI_Controller {
         return;
 	}
 	public function get_sources_list(){
+        $this->_auth_mandatory = false;
 		$post = $this->input->post();
 		$this->load->model('feed_models/sources_model');
 		$result = $this->sources_model->get($post);
@@ -78,7 +81,6 @@ class Feed_Api_V1 extends CI_Controller {
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->update($post);
         send_response($result,"200");
-        return;
 		//var_dump($result);
 		//$this->send_response($result);
 	}
@@ -87,7 +89,6 @@ class Feed_Api_V1 extends CI_Controller {
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->remove($post);
         send_response($result,"200");
-        return;
 		//var_dump($result);
 		//$this->send_response($result);
 	}
@@ -96,7 +97,6 @@ class Feed_Api_V1 extends CI_Controller {
 		$this->load->model('feed_models/urls_model');
 		$result = $this->urls_model->get($post);
         send_response($result,"200");
-        return;
 	}
     public function get_image_size($img){
         list($width, $height, $type, $attr) = getimagesize($img);

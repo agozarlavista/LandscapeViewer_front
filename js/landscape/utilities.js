@@ -3,7 +3,9 @@ var utilities = {
     auth_token : null,
     position : null,
 	init : function(params){
+        /* PROD TODO CHANGE */
         //this.defaultUri = params['baseURL'];
+        //alert(JSON.stringify(params));
 	},
 	load_service : function(uri, params, callback){
         var self = this;
@@ -50,10 +52,8 @@ var utilities = {
                             console.log(e);
                         }
                     );
-                    //alert(JSON.parse(e.responseText).message.message);
                 }
                 // callback(JSON.parse(e.responseText));
-                // alert('fail '+ JSON.parse(e.responseText));
             },
             always:function(e){
                 console.log("always = ", e);

@@ -42,6 +42,9 @@ var front = {
             self.checkImagesVisibility();
             //$( "#log" ).append( "<div>Handler for .scroll() called.</div>" );
         });
+        $('#advanced_search').on('click',function(){
+            search.openSearchBar();
+        });
         $(window).on('resize', function(){
             public_api.replaceAll();
         });

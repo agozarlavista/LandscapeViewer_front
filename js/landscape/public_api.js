@@ -127,8 +127,6 @@ var public_api = {
             $('#art_'+i).on('click', function(e){
                 if(new Date().getTime() - self._startTime < 100){
                     if($(e.target).attr('id') === undefined){
-                        //alert(self._articles[$(this).attr('id').replace('art_', '')].title);
-                        //alert('redirect to article page encode uri /article/article_name');
                         var string = self._articles[$(this).attr('id').replace('art_', '')].title;
                         var specialChars = new Array(
                             'à','á','â','ã','ä','ç','è','é','ê','ë','ì','í','î','ï','ñ','ò','ó','ô','õ','ö','ù','ú','û','ü','ý','ÿ',':',';','.',',',"'",'/','\\',' ','  ','!','?','(',')', '«', '»'
@@ -155,7 +153,6 @@ var public_api = {
                 }});
             });
             $('#art_'+i).dblclick(function() {
-                //alert('open id');
             });
             this._longPress[i] = new long_press("art_"+i);
             //console.log($('section article').last().css('top'));
@@ -171,7 +168,6 @@ var public_api = {
         var self = this;
         var _currentCol = parseInt($('#'+target).attr('class').split(' ')[0].replace('col_', ''));
         var _offset = $('#'+target).position();
-        //alert(_currentCol);
         var Panoramic = Backbone.Model.extend({
             defaults:{id:"panoramic_0"},
             idAttribute:"id"
@@ -450,7 +446,6 @@ var public_api = {
             h+=14;
         });
         return h;
-        //alert($('.col_'+id).length);
     },
     getHeight : function(){
         var colsHeight = [];

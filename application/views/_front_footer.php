@@ -2,12 +2,12 @@
 <footer>
 
 </footer>
-
     <script src="<?php echo base_url(); ?>js/jquery.js" type="text/javascript" ></script>
     <script src="<?php echo base_url(); ?>js/greensock/TweenMax.min.js" type="text/javascript" ></script>
+    <script src="<?php echo base_url(); ?>js/greensock/plugins/ScrollToPlugin.min.js" type="text/javascript" ></script>
     <script src="<?php echo base_url(); ?>js/landscape/utilities.js" type="text/javascript" ></script>
     <script src="<?php echo base_url(); ?>js/jquery.form.min.js" type="text/javascript" ></script>
-    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- lv utilities-->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_ui.js"></script>
@@ -18,6 +18,9 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_long_press.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/dropzone.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/iscroll.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/tag-it.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/search.js"></script>
 
     <?php
     if (isset($js)) {

@@ -20,7 +20,6 @@ var articles = {
         //for tests http://www.lemonde.fr/rss/une.xml
         //self._urls_list[self._current_update].url
         //"http://www.milkmagazine.net/feed/"
-        //alert(self._current_update+" == "+self._urls_list.length)
         if(self._current_update == self._urls_list.length-1){
             self._current_update = 0;
             setTimeout(function(){self.startUpdateArticles();},500);
@@ -29,13 +28,11 @@ var articles = {
         console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
         //landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
-            //alert(response.error);
             if(response.error){
                 self._current_update++;
                 setTimeout(function(){self.startUpdateArticles();},500);
                 return false;
             }
-            //alert(response);
             //console.log(JSON.stringify(response));
             //return;
             self._current_article_list = response;
@@ -51,7 +48,6 @@ var articles = {
     },
     saveFeedArticles : function(){
         var self = this;
-        //alert(JSON.stringify(self._current_article_list[this._current_article]));
         self.saveArticle(self._current_article_list[self._current_article], function(e){
             if(this._current_article < self._current_article_list.length){
                 self.saveFeedArticles();
@@ -72,21 +68,17 @@ var articles = {
         }
         utilities.load_service("feed/get_article", {"link":Object.link}, function(e){
             //response = JSON.parse(e);
-            //alert("get_article "+JSON.stringify(e));
             response = e;
             if(response.code != 200)
                 return;
-            //alert(response.data);
             if(response.data.length>0){
                 console.log('already exist');
                 self.nextArticle();
                 return;
             }
             utilities.load_service("feed/save_image_from_web", data_image, function(reponse){
-                alert(response);
                 console.log(reponse);
                 response = reponse;
-                //alert(response+" "+response.code+ "  " + typeof response.code);
                 if(typeof response.code == "undefined"){
 
                 }
@@ -102,7 +94,6 @@ var articles = {
                         title : Object.title
                     }
                     console.log(params);
-                    //alert(JSON.stringify(params));
                     //on ajoute l'article en base avec l'image_id
                     utilities.load_service("feed/add_article", params, function(reponse){
                         console.log(self._current_article+" < "+self._current_article_list);

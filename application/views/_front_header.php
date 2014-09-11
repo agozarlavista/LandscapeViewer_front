@@ -4,17 +4,21 @@
    <title>Landscape Viewer</title>
    <link rel="icon" type="image/png" href="images/assets/icon_75.png" />
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta http-equiv="Access-Control-Allow-Origin" content="*">
    <meta content="width=device-width, initial-scale=1.0, user-scalable = no" name="viewport" />
    <meta content="All your favorites on a page" name="description" />
    <meta content="Simon Delamarre, creative front end developer" name="author" />
    <meta name="apple-mobile-web-app-capable" content="yes">
    <meta name="apple-mobile-web-app-status-bar-style" content="black">
    <meta name="MobileOptimized" content="320">
-   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
    <link href="<?php echo base_url(); ?>styles/lv_font/landscapeviewerfont-regular.css" rel="stylesheet" type="text/css"/>
+   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
    <link href="<?php echo base_url(); ?>styles/landscape_viewer_color_pack.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv_ui.css" rel="stylesheet" type="text/css"/>
+   <link href="<?php echo base_url(); ?>styles/lv_search.css" rel="stylesheet" type="text/css"/>
+   <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
+   <link href="<?php echo base_url(); ?>styles/plugins/tag-it.css" rel="stylesheet" type="text/css">
    <?php
        if (isset($css)) {
            foreach($css as $file_css) {
@@ -73,12 +77,50 @@
                     echo '<a href="/login"><li><span class="icon">N</span>Login</li></a>';
                 }
             ?>
-            <a href="/advanced_search">
-                <li>
-                    <span class="icon">f</span>Advenced Search
-                </li>
-            </a>
+            <li id="advanced_search">
+                <span class="icon">f</span>Advanced Search
+            </li>
         </ul>
+        <div class="advancedSearchBar">
+            <div class="col">
+                <div class="title">Categories</div>
+                <div class="wrapper" id="types_wrapper">
+                    <ul id="types_list">
+
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="col">
+                <div class="title">Sub Categories</div>
+                <div class="wrapper" id="subtypes_wrapper">
+                    <ul id="subtypes_list">
+
+                    </ul>
+                </div>
+            </div>-->
+            <div class="col">
+                <div class="title">Sources</div>
+                <div class="wrapper" id="sources_wrapper">
+                    <ul id="sources_list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col">
+                <div class="title">Keywords</div>
+                <div class="wrapper" id="keywords_wrapper">
+                    <ul id="searchTags">
+                    </ul>
+                </div>
+            </div>
+            <div class="saving_bar">
+                <ul>
+                    <li><span class="icon" id="apply_search">V</span>apply search</li>
+                    <li><span class="icon" id="save_search">S</span>save search</li>
+                    <li><span class="icon" id="save_search">f</span><input type="search_label" placeholder="search label"/></li>
+                </ul>
+            </div>
+        </div>
         <div class="refreshBar">
             <div class="progress red"></div>
         </div>

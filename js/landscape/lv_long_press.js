@@ -46,9 +46,7 @@ long_press.prototype.init = function(){
         }
         self.destroyDelayedPress();
         if ( new Date().getTime() >= ( start + longpress )  ) {
-            //alert('long press!');
         } else {
-            //alert('short press!');
         }
         self._isLongPress = false;
     } );

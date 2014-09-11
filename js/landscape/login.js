@@ -40,7 +40,6 @@ var login = {
                 "public_api/create_account",
                 params,
                 function(response){
-                    alert(response);
                     console.log(response)
                 }
             );

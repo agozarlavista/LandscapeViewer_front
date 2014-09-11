@@ -19,8 +19,7 @@ var admin = {
         $('#column_type #add #icon').on('change', function(event){
             self.file_upload(event.target.files, function(e){
                 var response = JSON.parse(e);
-                if(response.code && response.code == 200)
-                    $('#column_type #add #image_id').html(response.id);
+                $('#column_type #add #image_id').html(response.data);
             });
             self.readFile(this, $('#column_type #add .preview'));
         });
@@ -41,8 +40,7 @@ var admin = {
         $('#column_type #edit #icon').on('change', function(e){
             self.file_upload(event.target.files, function(e){
                 var response = JSON.parse(e);
-                if(response.code && response.code == 200)
-                    $('#column_type #edit #image_id').html(response.id);
+                $('#column_type #edit #image_id').html(response.data);
             });
             self.readFile(this, $('#column_type #edit .preview'));
         });
@@ -83,8 +81,7 @@ var admin = {
         $('#column_source #add #icon').on('change', function(e){
             self.file_upload(event.target.files, function(e){
                 var response = JSON.parse(e);
-                if(response.code && response.code == 200)
-                    $('#column_source #add #image_id').html(response.id);
+                $('#column_source #add #image_id').html(response.data);
             });
             self.readFile(this, $('#column_source #add .preview'));
         });
@@ -106,8 +103,7 @@ var admin = {
         $('#column_source #edit #icon').on('change', function(e){
             self.file_upload(event.target.files, function(e){
                 var response = JSON.parse(e);
-                if(response.code && response.code == 200)
-                    $('#column_source #edit #image_id').html(response.id);
+                $('#column_source #edit #image_id').html(response.data);
             });
             self.readFile(this, $('#column_source #edit .preview'));
         });
@@ -229,10 +225,10 @@ var admin = {
 			{
 			},
 			function(result){
-				self.types_list = JSON.parse(result);
+                self.types_list = result;
                 $('#column_type ul').html('');
 				for(var i=0; i<self.types_list.length; i++){
-					$('#column_type ul').append('<li id="type_'+i+'" data-id="'+self.types_list[i]['id']+'">'+self.short(self.types_list[i]['label'])+'<div class="right_arrow"></div></li>');
+                    $('#column_type ul').append('<li id="type_'+i+'" data-id="'+self.types_list[i]['id']+'">'+self.short(self.types_list[i]['label'])+'<div class="right_arrow"></div></li>');
 					$('#type_'+i).bind('click', function(){
 						$('#column_type li').removeClass('selected');
 						self.type_id = $(this).attr('id').replace('type_', '');
@@ -258,7 +254,7 @@ var admin = {
 				"type_id":self.types_list[self.type_id].id
 			},
 			function(result){
-				self.sources_list = JSON.parse(result);
+				self.sources_list = result;
 				$('#column_source ul').html('');
 				for(var i=0; i<self.sources_list.length; i++){
 					$('#column_source ul').append('<li id="source_'+i+'" data-id="'+self.sources_list[i]['id']+'">'+self.short(self.sources_list[i]['label'])+'<div class="right_arrow"></div></li>');
@@ -285,7 +281,7 @@ var admin = {
 			},
 			function(result){
 				console.log(result);
-				self.urls_list = JSON.parse(result);
+				self.urls_list = result;
                 $('#column_url ul').html('');
                 for(var i=0; i<self.urls_list.length; i++){
                     $('#column_url ul').append('<li id="url_'+i+'" data-id="'+self.urls_list[i]['id']+'">'+self.short(self.urls_list[i]['url'])+'<div class="right_arrow"></div></li>');

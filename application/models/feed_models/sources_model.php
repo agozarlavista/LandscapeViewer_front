@@ -53,15 +53,20 @@ class Sources_Model extends CI_Model{
         return true;
     }
 	public function get($options){
-        $this->db->select('feed_sources.id, feed_sources.label, feed_sources.description, feed_sources.icon, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height');
+        $this->db->select('feed_sources.id, feed_sources.label, feed_sources.id_type, feed_sources.description, feed_sources.icon, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height');
         $this->db->from('feed_sources');
         if(isset($options['type_id']))
-            $this->db->where('id_type', $options['type_id']);
-
+            $this->db->where('feed_sources.id_type', $options['type_id']);
+        if(isset($options['type_list'])){
+            $this->db->where('feed_sources.id_type', $options['type_list'][0]);
+            foreach($options['type_list'] as $id_list){
+                $this->db->or_where('feed_sources.id_type', $id_list);
+            }
+        }
         $this->db->join('feed_media', 'feed_media.id = feed_sources.icon', 'left');
 
         $query = $this->db->get();
-        $this->db->last_query();
+        $last_query = $this->db->last_query();
         return $query->result();
 
 
