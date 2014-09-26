@@ -1,3 +1,15 @@
+    <section class="fullscreen_view" id="article_view">
+        <article>
+            <div class="wrapper">
+                <div class="scroller">
+                </div>
+            </div>
+        </article>
+        <div class="ground"></div>
+    </section>
+    <section class="fullscreen_view" id="panoramic_view">
+
+    </section>
     <section id="global_section">
         <?php
         if($session != false){

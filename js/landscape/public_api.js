@@ -137,9 +137,10 @@ var public_api = {
                         for(var i=0; i<specialChars.length; i++){
                             string = string.split(specialChars[i]).join(replaceChars[i]);
                         }
-                        var adress = escape(encodeURI(string.split(' ').join('_')));
+                        var adress = escape(encodeURI(string.split(' ').join('_').replace(/[^\w\s]/gi, '')));
+                        navigation.router.navigate('article/'+adress.toLowerCase()+'/id/'+self._articles[$(this).attr('id').replace('art_', '')].id, {trigger: true, replace: false});
                         //adress =  adress.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
-                        window.location.href = utilities.defaultUri+"article/"+adress+'-article-'+self._articles[$(this).attr('id').replace('art_', '')].id;
+                        //window.location.href = utilities.defaultUri+"article/"+adress+'-article-'+self._articles[$(this).attr('id').replace('art_', '')].id;
                     }
                 }
             });

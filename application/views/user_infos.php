@@ -42,6 +42,10 @@
 </div>
 <!-- <li> -->
 <script type="text/template" id="panoramic_list_template">
-    <a href="/page/<%= JSON.parse(utilities.getLocalSession('lv_user'))[0].page_name %>/panoramic/<%= escape(encodeURI(label.split(' ').join('_'))) %>"><%= label %><div class="arrow"></div></a>
+    <div data-page="panoramic/<%= escape(encodeURI(label.split(' ').join('_').replace(/[^\w\s]/gi, ''))) %>/user/<%= JSON.parse(utilities.getLocalSession('lv_user'))[0].page_name %>">
+        <%= label %>
+        <div class="arrow"></div>
+    </div>
 </script>
+<!--/page/ JSON.parse(utilities.getLocalSession('lv_user'))[0].page_name /-->
 <!-- </li> -->
