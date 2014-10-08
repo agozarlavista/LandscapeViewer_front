@@ -3,7 +3,7 @@ var front = {
     _refreshDelay : null,
     init : function(){
         this._defaultTopNav = $('nav').offset().top;
-        public_api.get_articles();
+        public_api.get_articles({limit:100});
         lv_ui.init();
         this.addListeners();
         this.startRefresh();
@@ -57,7 +57,7 @@ var front = {
                     {label:"No problem", color:"red"}
                 ]
             }, function(e){
-                console.log(e);
+                //console.log(e);
             });
         });
         self.checkImagesVisibility();
@@ -92,7 +92,7 @@ var front = {
     refreshDown : function(){
         var self = this;
         this._refreshDelay = TweenMax.to($('.refresh_bottom .bar'), 2, {css:{width:$(document).width()+"px"}, ease:Power4.easeOut, onComplete:function(){
-            alert('refreshed');
+            public_api.get_articles({start:100, limit:100});
             self.stopRefreshDown();
         }});
     },

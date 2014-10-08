@@ -25,7 +25,7 @@ var articles = {
             setTimeout(function(){self.startUpdateArticles();},500);
             return;
         }
-        console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
+        //console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
         //landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
             if(response.error){
@@ -36,7 +36,7 @@ var articles = {
             //console.log(JSON.stringify(response));
             //return;
             self._current_article_list = response;
-            console.log(self._current_article_list);
+            //console.log(self._current_article_list);
             if(self._current_article_list.length > 0){
                 self.saveFeedArticles();
             }else{
@@ -58,7 +58,7 @@ var articles = {
         //this._current_article;
     },
     saveArticle : function(Object, callBack){
-        console.log("saveArticle");
+        //console.log("saveArticle");
         //console.log(Object);
         //return;
         var self = this;
@@ -72,12 +72,12 @@ var articles = {
             if(response.code != 200)
                 return;
             if(response.data.length>0){
-                console.log('already exist');
+                //console.log('already exist');
                 self.nextArticle();
                 return;
             }
             utilities.load_service("feed/save_image_from_web", data_image, function(reponse){
-                console.log(reponse);
+                //console.log(reponse);
                 response = reponse;
                 if(typeof response.code == "undefined"){
 
@@ -93,10 +93,10 @@ var articles = {
                         link : Object.link,
                         title : Object.title
                     }
-                    console.log(params);
+                    //console.log(params);
                     //on ajoute l'article en base avec l'image_id
                     utilities.load_service("feed/add_article", params, function(reponse){
-                        console.log(self._current_article+" < "+self._current_article_list);
+                        //console.log(self._current_article+" < "+self._current_article_list);
                         self.nextArticle();
                     });
                 }

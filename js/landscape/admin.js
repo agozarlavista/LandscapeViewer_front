@@ -280,7 +280,7 @@ var admin = {
 				"source_id":self.sources_list[self.source_id].id
 			},
 			function(result){
-				console.log(result);
+				//console.log(result);
 				self.urls_list = result;
                 $('#column_url ul').html('');
                 for(var i=0; i<self.urls_list.length; i++){

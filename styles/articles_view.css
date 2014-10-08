@@ -264,6 +264,8 @@
     left: 15%;
     top: 200px;
     z-index: 99;
+    cursor:pointer;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
 }
 .fullscreen_view .prev_button .icon{
     font-size: 220px;
@@ -279,6 +281,11 @@
     left: 75%;
     top: 200px;
     z-index: 99;
+    cursor:pointer;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+}
+.fullscreen_view .close_button:hover {
+    color:#FFF000 !important;
 }
 .fullscreen_view .close_button .icon{
     font-size: 220px;

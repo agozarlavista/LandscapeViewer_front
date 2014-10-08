@@ -33,16 +33,13 @@ var public_api = {
     set_user_profile : function(){
 
     },
-    get_articles : function(){
+    get_articles : function(params){
         var self = this;
-        var params = {
-            limit:100
-        }
         utilities.load_service(
             "feed/get_article",
             params,
             function(result){
-                console.log(result);
+                //console.log(result);
                 var response = result;
                 self._articles = response;
                 self.display_pack();
@@ -96,8 +93,8 @@ var public_api = {
                     self.openDropZone();
                 },
                 stop: function( event, ui ) {
-                    console.log(ui);
-                    console.log("cible = "+ ui.helper[0].nextElementSibling.id);
+                    //console.log(ui);
+                    //console.log("cible = "+ ui.helper[0].nextElementSibling.id);
                     if(!self._dropLocked)
                         self.closeDropZone();
                     TweenMax.to($('.selected_frame'), .1, {css:{'border':'5px solid #50AACE'}});
@@ -194,7 +191,7 @@ var public_api = {
         $('#panoramic_' + self._panoramics.length + ' #create_panoramic').bind('click', function(){
             //console.log($(this).parent().parent().attr('id').replace('panoramic_',''));
             var panoramic_id = $(this).parent().parent().attr('id').replace('panoramic_','');
-            console.log(self._parnoamics_articles[parseInt(panoramic_id)]);
+            ///console.log(self._parnoamics_articles[parseInt(panoramic_id)]);
             var panoramic_label = $(this).parent().parent().find('#label').val();
             if(panoramic_label == ''){
                 lv_ui.alert_component(
@@ -206,7 +203,7 @@ var public_api = {
                         ]
                     },
                     function(e){
-                        console.log(e);
+                        //console.log(e);
                     }
                 );
                 return false;
@@ -216,7 +213,7 @@ var public_api = {
                 articles_list.push(self._articles[self._parnoamics_articles[parseInt(panoramic_id)][i]].id);
             }
             var pano_object = $(this).parent().parent();
-            console.log('articles list = ', articles_list);
+            //console.log('articles list = ', articles_list);
             self.savePanoramic(pano_object, articles_list, panoramic_label);
         });
 
@@ -341,12 +338,12 @@ var public_api = {
                 }
 
                 self._dropLocked = true;
-                console.log($('#'+ui.helper[0].id).hasClass( "selected_article" ));
+                //console.log($('#'+ui.helper[0].id).hasClass( "selected_article" ));
                 if($('#'+ui.helper[0].id).hasClass( "selected_article" )){
                     //si l'article est selectionné, on ajoute tout les articles selectionnés à la pile
                     $('.selected_article').each(function( index ) {
                         $(this).remove();
-                        console.log( index +" "+$(this).attr('id') );
+                        //console.log( index +" "+$(this).attr('id') );
                         self._dropped_articles.push(self._articles[$(this).attr('id').replace('art_','')].id);
                         $('.panoramic_drop_zone .zone').append("<div class='small_preview' id='preview_"+self._dropped_articles.length+"' style='background-image:url("+self._articles[$(this).attr('id').replace('art_','')].url+");'></div>");
                         $('#preview_'+self._dropped_articles.length).on('click', function(){
@@ -364,7 +361,7 @@ var public_api = {
                                         var index = parseInt($(this).attr('id').replace('preview_',''));
                                         self._dropped_articles.splice(index, 1);
                                         $(this).remove();
-                                        console.log(self._dropped_articles);
+                                        //console.log(self._dropped_articles);
                                     }
                                 }
                             );
@@ -378,7 +375,7 @@ var public_api = {
                     $('#'+ui.helper[0].id).remove();
                     self._dropped_articles.push(self._articles[ui.helper[0].id.replace('art_','')].id);
                     $('.panoramic_drop_zone .zone').append("<div class='small_preview' id='preview_"+self._dropped_articles.length+"' style='background-image:url("+self._articles[ui.helper[0].id.replace('art_','')].url+");'></div>");
-                    console.log(ui.helper[0].id);
+                    //console.log(ui.helper[0].id);
                     $('#preview_'+self._dropped_articles.length).on('click', function(){
                         var obj_to_edit = $(this);
                         lv_ui.alert_component(
@@ -395,7 +392,7 @@ var public_api = {
                                     var index = parseInt(obj_to_edit.attr('id').replace('preview_',''));
                                     self._dropped_articles.splice(index, 1);
                                     obj_to_edit.remove();
-                                    console.log(self._dropped_articles);
+                                    //console.log(self._dropped_articles);
                                 }
                             }
                         );
@@ -415,7 +412,7 @@ var public_api = {
                         ]
                     },
                     function(e){
-                        console.log(e);
+                        //console.log(e);
                     }
                 );
                 return false;
@@ -474,7 +471,7 @@ var public_api = {
             "panoramic_manager/get",
             {},
             function(response){
-                console.log("user panoramics  = ", response);
+                //console.log("user panoramics  = ", response);
                 for(var i= 0; i<response.length; i++){
                     //get_template('user_panoramic_list');
                     lv_ui.get_template({name:"panoramic_list_template", tagName : "li", attr:"", values:response[i], target:$('#user_panoramic_list')});

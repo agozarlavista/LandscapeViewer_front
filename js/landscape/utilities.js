@@ -10,14 +10,14 @@ var utilities = {
 	load_service : function(uri, params, callback){
         var self = this;
         params = self.addParams(params);
-        console.log(params);
+        //console.log(params);
         $.ajax({
             type: "POST",
             url: this.defaultUri+uri,
             dataType: 'json',
             data: params,
             success: function (response) {
-                console.log(JSON.stringify(response.data));
+                //console.log(JSON.stringify(response.data));
                 callback(response.data);
                 if(response.data.message){
                     lv_ui.alert_component(
@@ -29,7 +29,7 @@ var utilities = {
                             ]
                         },
                         function(e){
-                            console.log(e);
+                            //console.log(e);
                         }
                     );
                 }
@@ -49,14 +49,14 @@ var utilities = {
                             ]
                         },
                         function(e){
-                            console.log(e);
+                            //console.log(e);
                         }
                     );
                 }
                 // callback(JSON.parse(e.responseText));
             },
             always:function(e){
-                console.log("always = ", e);
+                //console.log("always = ", e);
                 if(e.access){
                     self.setTokenAccess(e.access);
                 }

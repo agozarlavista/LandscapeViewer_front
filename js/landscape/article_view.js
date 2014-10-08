@@ -4,21 +4,32 @@ var articleView = {
 	Diaporama : null,
     init : function(){
 		//alert('we are on an article page '+navigation.pageInfos.id);
-		//this.loadArticleInfos();
-		for(var i=0; i<public_api._articles.length; i++){
+		var self = this;
+		utilities.load_service(
+			"feed/get_article",
+			{
+				id:navigation.pageInfos.id
+			},
+			function(result){
+				console.log('article current : ', result);
+				self._articleInfos = result[0];
+				self.showArticleDatas();
+			}
+		);
+		/*for(var i=0; i<public_api._articles.length; i++){
 			if(public_api._articles[i].id == navigation.pageInfos.id){
 				this._articleInfos = public_api._articles[i];
 				this.showArticleDatas();
 				break;
 			}
-		}
+		}*/
     },
 	showArticleDatas : function(){
 		//alert(this._articleInfos.url);
 		//$('#article_view').html(JSON.stringify(this._articleInfos));
 		this._articleInfos.url = this._articleInfos.url.replace('./', '/');
 		this._articleInfos.url = this._articleInfos.url.replace('http://localhost/~simondelamarre/LV/www', '');
-		console.log(this._articleInfos);
+		//console.log(this._articleInfos);
 		this._articleInfos.realDatas = JSON.parse(this._articleInfos.info_object);
 		$('#article_view').css('background-color', this._articleInfos.dominante);
 		lv_ui.get_template(
@@ -48,9 +59,15 @@ var articleView = {
 		//have to blur $('#article_image')
 
 		this.Diaporama = new diaporama($('#article_diaporama'), 'artdiapo', 460, 'px', true, false, 20, function(e){
-			console.log(e);
+			//console.log(e);
+			console.log(navigation.pageInfos);
+			navigation.router.navigate('article/'+navigation.pageInfos.article+'/id/'+navigation.pageInfos.id+'/picture/'+e, {trigger: true, replace: false});
 		});
 		this.Diaporama.init();
+
+		if(typeof navigation.pageInfos.picture != "undefined"){
+			this.Diaporama.slide(navigation.pageInfos.picture);
+		}
 	},
     loadArticleInfos : function(){
         utilities.load_service(

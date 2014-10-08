@@ -84,8 +84,8 @@
 <script type="text/template" id="article_detail_template">
 	<div class="wrapper">
 		<div class="scroller">
-			<div class="prev_button"><div class="icon"><</div><div class="title_button">retour</div></div>
-			<div class="close_button"><div class="icon">X</div><div class="title_button">fermer</div></div>
+			<div class="prev_button" data-page="/"><div class="icon"><</div><div class="title_button">retour</div></div>
+			<div class="close_button" data-page="/"><div class="icon">X</div><div class="title_button">fermer</div></div>
 			<div style="width:<%= width %>px; height:<%= height %>px; background-size:cover; background-image:url(<%= url %>);display:none;" id="article_image"/>
 			<div class="article_diaporama" id="article_diaporama">
 				<div class="diaporama">
@@ -149,15 +149,15 @@
 					<div class="line stats">
 						<div class="likes">
 							<span class="stat_icon">Ä</span>
-							<span class="stat_number">567</span>
+							<span class="stat_number"><%= liked %></span>
 						</div>
 						<div class="break_likes">
 							<span class="stat_icon">À</span>
-							<span class="stat_number">67</span>
+							<span class="stat_number"><%= liked %></span>
 						</div>
 						<div class="views">
 							<span class="stat_icon">V</span>
-							<span class="stat_number">2K</span>
+							<span class="stat_number"><%= view %></span>
 						</div>
 					</div>
 					<div class="line title">

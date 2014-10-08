@@ -22,6 +22,8 @@ var navigation = {
                 "*page":"loadPage"
             },
             loadPage : function(params){
+				var oldInfos = navigation.pageInfos;
+				console.log('oldInfos : ', oldInfos);
                 navigation.pageInfos = {};
                 //if(!params) return false;
 				if(typeof params != 'undefined'){
@@ -32,6 +34,13 @@ var navigation = {
 						for(var i = 0; i < paramsArray.length; i += 2) {
 							navigation.pageInfos[paramsArray[i]] = paramsArray[i + 1];
 							param++;
+						}
+					}
+				}
+				if(oldInfos != null) {
+					if (typeof oldInfos.page != "undefined" && typeof navigation.pageInfos.page != "undefined") {
+						if (paramsArray[0] == navigation.pageInfos.page) {
+							return false;
 						}
 					}
 				}

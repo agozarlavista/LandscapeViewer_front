@@ -61,7 +61,7 @@ class Articles_Model extends CI_Model{
             }
         }
         $this->db->from('feed_articles');
-        $this->db->where('feed_articles.id_type', 33);
+        //$this->db->where('feed_articles.id_type', 33);
         //$this->db->or_where('feed_articles.id_type', 34);
         //$this->db->or_where('feed_articles.id_type', 35);
         //$this->db->or_where('feed_articles.id_type', 36);
@@ -69,7 +69,11 @@ class Articles_Model extends CI_Model{
         if(!isset($options['limit'])){
             $this->db->limit(100,0);
         }else{
-            $this->db->limit($options['limit'],0);
+			if(!isset($options['start'])) {
+				$this->db->limit($options['limit'], 0);
+			}else{
+				$this->db->limit($options['limit'], $options['start']);
+			}
         }
         $this->db->join('feed_media', 'feed_media.id = feed_articles.image_id');
         $this->db->join('feed_sources', 'feed_sources.id = feed_articles.id_source');

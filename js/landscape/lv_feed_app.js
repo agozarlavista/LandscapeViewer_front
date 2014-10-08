@@ -111,7 +111,7 @@ var landscapeViewerFeed = {
 
 
         feed.load(function(result) {
-            console.log(JSON.stringify(result));
+            //console.log(JSON.stringify(result));
             if (!result.error && result.status.code == 200) {
                 landscapeViewerFeed.parseForApp(result);
             }else{

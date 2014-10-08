@@ -23,8 +23,8 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/tag-it.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/blur.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/search.js"></script>
-    <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/navigation.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/article_view.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/navigation.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/diaporama.js"></script>
     <!-- lv utilities-->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_ui.js"></script>
