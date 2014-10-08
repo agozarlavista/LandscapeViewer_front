@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+	<script src="<?php echo base_url(); ?>js/plugins/hammer.min.js"></script>
 
     <!--<script src="js/jquery.js" type="text/javascript" ></script>-->
     <script src="<?php echo base_url(); ?>js/greensock/TweenMax.min.js" type="text/javascript" ></script>
@@ -20,8 +21,11 @@
     <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/dropzone.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/iscroll.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/tag-it.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/plugins/blur.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/search.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/navigation.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/article_view.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/diaporama.js"></script>
     <!-- lv utilities-->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_ui.js"></script>
 

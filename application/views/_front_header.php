@@ -17,6 +17,8 @@
    <link href="<?php echo base_url(); ?>styles/lv-styles.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv_ui.css" rel="stylesheet" type="text/css"/>
    <link href="<?php echo base_url(); ?>styles/lv_search.css" rel="stylesheet" type="text/css"/>
+   <link href="<?php echo base_url(); ?>styles/articles_view.css" rel="stylesheet" type="text/css"/>
+	<link href="<?php echo base_url(); ?>styles/diaporama.css" rel="stylesheet" type="text/css"/>
    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css">
    <link href="<?php echo base_url(); ?>styles/plugins/tag-it.css" rel="stylesheet" type="text/css">
    <?php

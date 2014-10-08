@@ -739,16 +739,3 @@ article .source .date{
     z-index:9999;
     display:none;
 }
-
-
-
-/* ARTICLES STYLES ONLY */
-.fullscreen_view {
-    margin-top: 106px;
-    position: fixed;
-    width: 100%;
-    top: 0px;
-    z-index: 9;
-    background-color:#FFF;
-    display:none;
-}

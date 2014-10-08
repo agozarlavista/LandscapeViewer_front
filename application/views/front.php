@@ -1,15 +1,8 @@
-    <section class="fullscreen_view" id="article_view">
-        <article>
-            <div class="wrapper">
-                <div class="scroller">
-                </div>
-            </div>
-        </article>
-        <div class="ground"></div>
-    </section>
-    <section class="fullscreen_view" id="panoramic_view">
+    <div class="fullscreen_view" id="article_view">
+    </div>
+    <div class="fullscreen_view" id="panoramic_view">
 
-    </section>
+    </div>
     <section id="global_section">
         <?php
         if($session != false){
@@ -87,6 +80,140 @@
     <div class="panoramic_footer">
         <button class="panoramic_footer_button" id="create_panoramic">P</button>
     </div>
+</script>
+<script type="text/template" id="article_detail_template">
+	<div class="wrapper">
+		<div class="scroller">
+			<div class="prev_button"><div class="icon"><</div><div class="title_button">retour</div></div>
+			<div class="close_button"><div class="icon">X</div><div class="title_button">fermer</div></div>
+			<div style="width:<%= width %>px; height:<%= height %>px; background-size:cover; background-image:url(<%= url %>);display:none;" id="article_image"/>
+			<div class="article_diaporama" id="article_diaporama">
+				<div class="diaporama">
+					<div class="content_screens" id="content_screens_diaporama">
+						<% for(var i=0; i<realDatas.images.length; i++){ %>
+							<div class="slide" id="slide_<%= i %>">
+								<% if (i == 0){ %>
+									<img src="<%= realDatas.images[i] %>" data-image="<%= realDatas.images[i] %>" height="100%"/>
+								<% }else{ %>
+									<img src="" data-image="<%= realDatas.images[i] %>" height="100%"/>
+								<% } %>
+							</div>
+						<% } %>
+					</div>
+				</div>
+				<div class="content_li">
+					<ul class="diaporama_navigation" style="width:<%= (realDatas.images.length*35) %>px;">
+						<% for(var i=0; i<realDatas.images.length; i++){ %>
+							<li id="diapo_<%= i %>" data-slide="<%= i %>"></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+			<div class="content_article">
+				<div class="left_col">
+					<div class="line title lightgrey"><%= title %></div>
+					<div class="line description lightgrey"><%= realDatas.content %></div>
+					<div class="line title">
+						<span class="icon">R</span>
+						<span><%= realDatas.videos.length %> médias supplémentaires</span>
+					</div>
+					<div class="line source">
+						<div class="logo"></div>
+						<div class="source_name"><%= description %></div>
+					</div>
+					<div class="line publication_date">
+						<span>publié le <%= new Date(realDatas.publishedDate) %></span>
+					</div>
+					<div class="line lightgrey">
+						<div class="classic_button">
+							<span class="icon">ô</span>
+							<span>Ajouter à un panoramic</span>
+						</div>
+						<div class="classic_button">
+							<span class="icon">h</span>
+							<span>Source</span>
+						</div>
+					</div>
+					<div class="line title">
+						<span class="icon">W</span>
+						<span>Commentaires</span>
+						<span class="number"></span>
+					</div>
+				</div>
+				<div class="right_col">
+					<div class="line sharing_links lightgrey">
+						<div class="classic_button"><span class="icon">2</span></div>
+						<div class="classic_button"><span class="icon">3</span></div>
+						<div class="classic_button"><span class="icon">7</span></div>
+					</div>
+					<div class="line stats">
+						<div class="likes">
+							<span class="stat_icon">Ä</span>
+							<span class="stat_number">567</span>
+						</div>
+						<div class="break_likes">
+							<span class="stat_icon">À</span>
+							<span class="stat_number">67</span>
+						</div>
+						<div class="views">
+							<span class="stat_icon">V</span>
+							<span class="stat_number">2K</span>
+						</div>
+					</div>
+					<div class="line title">
+						<span class="icon">P</span>
+						<span>8 Panoramics</span>
+					</div>
+					<div class="line panoramics middlegrey">
+						<div class="panoramic_button">
+							<div class="picture"></div>
+							<div class="title">test title</div>
+							<div class="show_button"><span class="icon">V</span>Voir</div>
+						</div>
+						<div class="panoramic_button">
+							<div class="picture"></div>
+							<div class="title">test title</div>
+							<div class="show_button"><span class="icon">V</span>Voir</div>
+						</div>
+						<div class="panoramic_button">
+							<div class="picture"></div>
+							<div class="title">test title</div>
+							<div class="show_button"><span class="icon">V</span>Voir</div>
+						</div>
+						<div class="line_down_button">
+							<span>Voir les panoramics contenant cet article.</span>
+						</div>
+					</div>
+					<div class="line title">
+						<span class="icon">J</span>
+						<span>128 Articles similaires</span>
+					</div>
+					<div class="line articles middlegrey">
+						<div class="article_button">
+							<div class="picture"></div>
+							<div class="label"></div>
+							<div class="article_source">
+								<div class="logo"></div>
+								<div class="name"></div>
+							</div>
+						</div>
+						<div class="line_down_button">
+							<span>Voir les articles similaires</span>
+						</div>
+					</div>
+					<div class="line title">
+						<span class="icon">t</span>
+						<span>Tags</span>
+					</div>
+					<div class="line tags lightgrey">
+						<% for(var i=0; i<realDatas.categories.length; i++){ %>
+							<div class="tag"><%= realDatas.categories[i] %></div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </script>
     <!--<div class="thumb"></div>
     <div class="thumb"></div>-->

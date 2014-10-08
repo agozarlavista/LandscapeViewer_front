@@ -23,13 +23,18 @@ var navigation = {
             },
             loadPage : function(params){
                 navigation.pageInfos = {};
-                if(!params) return false;
-                var paramsArray = params.split('/');
-                var param = 0;
-                for(var i = 0; i < paramsArray.length; i += 2) {
-                    navigation.pageInfos[param] = JSON.parse('{"tag" : "' + paramsArray[i] + '", "value" : "' + paramsArray[i + 1] + '"}');
-                    param++;
-                }
+                //if(!params) return false;
+				if(typeof params != 'undefined'){
+					var paramsArray = params.split('/');
+					var param = 0;
+					if(paramsArray.length > 0){
+						navigation.pageInfos['page'] = paramsArray[0];
+						for(var i = 0; i < paramsArray.length; i += 2) {
+							navigation.pageInfos[paramsArray[i]] = paramsArray[i + 1];
+							param++;
+						}
+					}
+				}
                 navigation.openPage();
             }
         });
@@ -47,27 +52,33 @@ var navigation = {
         Backbone.history.stop();
     },
     openPage : function(){
-        //alert(JSON.stringify(navigation.pageInfos));
-        switch(navigation.pageInfos[0].tag){
-            case 'article':
-                $('#article_view').css('opacity', '0');
-                $('#article_view').css('display', 'block');
-                TweenLite.to($('#article_view'),.5, {opacity:1, onComplete:function(){
-                    alert('load article and create view');
-                }});
-                break;
-            case 'panoramic':
-                break;
-            case 'profile':
-                break;
-            case 'search':
-                break;
-            case 'login':
-                break;
-            case 'download':
-                break;
-        }
-        $('body').css('overflow','hidden')
+		//navigation.pageInfos.keys = Object_keys;
+		if(typeof navigation.pageInfos.page != "undefined"){
+			switch(navigation.pageInfos.page){
+				case 'article':
+					$('#article_view').css('opacity', '0');
+					$('#article_view').css('display', 'block');
+					articleView.init();
+					TweenLite.to($('#article_view'),.5, {opacity:1, onComplete:function(){
+					}});
+					break;
+				case 'panoramic':
+					break;
+				case 'profile':
+					break;
+				case 'search':
+					break;
+				case 'login':
+					break;
+				case 'download':
+					break;
+			}
+			$('body').css('overflow','hidden');
+		}else{
+			$('body').css('overflow','scroll');
+			$('#article_view').html('');
+			$('#article_view').css('display', 'none');
+		}
     },
 	destroy : function(){
 

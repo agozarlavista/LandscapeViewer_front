@@ -15,7 +15,7 @@ long_press.prototype.init = function(){
     var start;
     jQuery( "#"+this._objectId ).on( 'mousedown', function( e ) {
         if($(this).find('.selected_frame').css('display') == "block")
-            return;
+            return false;
         $("body").prepend('<div class="long_press_canvas_content" style="left:' + (e.pageX-40) + 'px; top:' + (e.pageY-90) + 'px;"><canvas class="long_press_canvas" width="80" height="80" id="long_press_canvas"></canvas><div class="inner">h</div></div>');
         self._startX = e.pageX;
         self._startY = e.pageY;
@@ -40,10 +40,10 @@ long_press.prototype.init = function(){
     } );
 
     jQuery( "#"+this._objectId ).on( 'mouseup', function( e ) {
-        if(self._isLongPress){
+        /*if(self._isLongPress){
             $('#'+self._objectId).addClass('selected_article');
             $('#'+self._objectId+' .selected_frame').css('display', 'block');
-        }
+        }*/
         self.destroyDelayedPress();
         if ( new Date().getTime() >= ( start + longpress )  ) {
         } else {

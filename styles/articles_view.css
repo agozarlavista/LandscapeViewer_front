@@ -1,0 +1,294 @@
+/* ARTICLES STYLES ONLY */
+.fullscreen_view {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    z-index: 999;
+    background-color:#FFF;
+    display:none;
+    background-size:cover;
+    background-position:center center;
+}
+.fullscreen_view .wrapper {
+    width:100%;
+    height:100%;
+}
+.fullscreen_view .scroller {
+    width:100%;
+    display: table;
+}
+.article_diaporama{
+    text-align: center;
+    position:relative;
+    float:left;
+    width:100%;
+}
+.article_viewer {
+    width:100%;
+    height:100%;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.fullscreen_view .diaporama {
+    height:460px;
+    width:100%;
+}
+.fullscreen_view .content_article{
+    width:100%;
+    display:table;
+    max-width: 980px;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.fullscreen_view .left_col{
+    width:60%;
+    float:left;
+    display:block;
+    background-color:#FFF;
+}
+.fullscreen_view .right_col{
+    width:35%;
+    margin-left:5%;
+    float:left;
+    display:block;
+    background-color:#FFF;
+}
+.lightgrey{
+    background-color:#F0F0EF;
+}
+.middlegrey{
+    background-color:#C6C6C4;
+}
+.fullscreen_view .line{
+    width: 92%;
+    display: table;
+    font-family: "Roboto", helvetica;
+    text-align: left;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.fullscreen_view .panoramics{
+    padding: 0;
+    width: 100%;
+}
+.fullscreen_view .articles{
+    padding: 0;
+    width: 100%;
+}
+.fullscreen_view .line .panoramic_button{
+    width: 32%;
+    margin-left: 1%;
+    display: table;
+    background-color: #FFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    float: left;
+    margin-top: 4px;
+    margin-bottom: 5px;
+}
+.fullscreen_view .line .panoramic_button .picture{
+    width: 92%;
+    margin: 5px;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-color: #333;
+    height: 80px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.fullscreen_view .line_down_button{
+    font-size: 11px;
+    display: table;
+    left: 0;
+    right: 0;
+    margin: auto;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #F0F0EF;
+    padding: 10px;
+    margin-top: 10px;
+    color:#1C1C1B;
+}
+.fullscreen_view .tag{
+    float:left;
+    padding:10px;
+    background-color:#C6C6C4;
+    color:#FFF;
+    font-family: "Roboto", helvetica;
+    font-weight: 500;
+    color:#FFF;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-left:10px;
+    margin-bottom:10px;
+}
+.fullscreen_view .article_button{
+    display: block;
+    background: #FFF;
+    width: 94%;
+    float: left;
+    margin-left:3%;
+    margin-top:8px;
+    margin-bottom:4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.fullscreen_view .article_button .picture {
+    width:100px;
+    height:100px;
+    background-color:#333;
+    float:left
+}
+.fullscreen_view .article_button .label{
+    float: left;
+    padding:10px;
+}
+.fullscreen_view .line .panoramic_button .title{
+    padding: 5px;
+    font-size: 12px;
+}
+.fullscreen_view .line .panoramic_button .show_button{
+    display: table;
+    border-top: 1px solid #E3E3E3;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #999;
+}
+.fullscreen_view .line .title{
+    font-size:14px;
+    font-weight: 600;
+}
+.fullscreen_view .line .description{
+    color:#999;
+    font-size:13px;
+}
+.fullscreen_view .line .icon{
+    color: #333;
+    line-height: 8px;
+    padding: 0;
+    float: left;
+    display: table;
+    padding-right: 10px;
+}
+.fullscreen_view .source{
+    border-top:1px solid #E3E3E3;
+}
+.fullscreen_view .source .logo{
+    float: left;
+    width: 50px;
+    height: 50px;
+    display: table;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    background-color: #444;
+    margin-right: 15px;
+}
+.fullscreen_view .source .source_name{
+    line-height: 50px;
+}
+.fullscreen_view .publication_date{
+    text-align: right;
+    color:#BBBBBA;
+    font-size: 12px;
+    border-top:1px solid #E3E3E3;
+}
+.fullscreen_view .classic_button .icon{
+    color:#868687;
+}
+.fullscreen_view .stats{
+    border-top:1px solid #E3E3E3;
+    border-bottom:1px solid #E3E3E3;
+    padding:0;
+    width: 100%;
+}
+.fullscreen_view .stats div{
+    display: table;
+    float: left;
+    padding: 10px;
+    border-right: 1px solid #E3E3E3;
+}
+.fullscreen_view .stats .stat_icon{
+    font-family: Flaticon;
+    font-size: 40px;
+    line-height: 5px;
+    padding-right: 5px;
+    color:#D84335;
+}
+.fullscreen_view .stats .stat_number{
+    font-size: 25px;
+    line-height: 10px;
+    font-family: roboto-light;
+    font-weight: 100;
+}
+.fullscreen_view .classic_button{
+    display:table;
+    float:left;
+    padding:10px;
+    border:1px solid #868687;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-right: 15px;
+    color:#333333;
+    font-weight: 100;
+    font-size: 18px;
+}
+
+
+.fullscreen_view .slide img{
+    border:5px solid #FFF;
+    height:90%;
+    margin-top:20px;
+}
+.fullscreen_view .prev_button{
+    display: table;
+    width: 135px;
+    height: 130px;
+    position: absolute;
+    left: 15%;
+    top: 200px;
+    z-index: 99;
+}
+.fullscreen_view .prev_button .icon{
+    font-size: 220px;
+    line-height: 0px;
+    width: 100px;
+    height: 100px;
+}
+.fullscreen_view .close_button{
+    display: table;
+    width: 135px;
+    height: 130px;
+    position: absolute;
+    left: 75%;
+    top: 200px;
+    z-index: 99;
+}
+.fullscreen_view .close_button .icon{
+    font-size: 220px;
+    line-height: 0px;
+    width: 135px;
+    height: 100px;
+}
+.fullscreen_view .title_button{
+    color:#FFF;
+    font-size: 14px;
+    text-align: center;
+    width:135px;
+}
