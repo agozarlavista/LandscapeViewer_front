@@ -24,6 +24,7 @@ var navigation = {
             loadPage : function(params){
 				var oldInfos = navigation.pageInfos;
 				console.log('oldInfos : ', oldInfos);
+				console.log('params : ', params);
                 navigation.pageInfos = {};
                 //if(!params) return false;
 				if(typeof params != 'undefined'){
@@ -36,10 +37,12 @@ var navigation = {
 							param++;
 						}
 					}
+					console.log(navigation.pageInfos);
 				}
 				if(oldInfos != null) {
 					if (typeof oldInfos.page != "undefined" && typeof navigation.pageInfos.page != "undefined") {
-						if (paramsArray[0] == navigation.pageInfos.page) {
+						if (oldInfos.page == navigation.pageInfos.page && oldInfos.id == navigation.pageInfos.id) {
+							console.log(oldInfos.page + " ==  " + navigation.pageInfos.page);
 							return false;
 						}
 					}
@@ -62,9 +65,11 @@ var navigation = {
     },
     openPage : function(){
 		//navigation.pageInfos.keys = Object_keys;
+		console.log(navigation.pageInfos.page);
 		if(typeof navigation.pageInfos.page != "undefined"){
 			switch(navigation.pageInfos.page){
 				case 'article':
+					console.log('article');
 					$('#article_view').css('opacity', '0');
 					$('#article_view').css('display', 'block');
 					articleView.init();
@@ -72,6 +77,7 @@ var navigation = {
 					}});
 					break;
 				case 'panoramic':
+					console.log('panoramic');
 					break;
 				case 'profile':
 					break;

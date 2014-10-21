@@ -141,13 +141,17 @@ var landscapeViewerFeed = {
         this.callBack(this.searchList);
     },
     parseHTML :function(str){
+		console.log(str);
+		console.log($("<div/>").html(str).text());
+		console.log(_.escape(str));
         return $("<div/>").html(str).text();
+
     },
     getImages : function(str){
         var images = [];
         var stripImages = str.split('<img');
         for(var m=0; m<stripImages.length; m++){
-            var imageHref = stripImages[m].split('src=\"');
+            var imageHref = stripImages[m].split(' src=\"');
             if(imageHref.length>1){
                 var preciseImageLink = imageHref[1].split('\" ')[0];
                 preciseImageLink = preciseImageLink.replace('<br', '');

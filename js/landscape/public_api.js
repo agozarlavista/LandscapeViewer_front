@@ -41,7 +41,14 @@ var public_api = {
             function(result){
                 //console.log(result);
                 var response = result;
-                self._articles = response;
+				if(self._articles == null)
+					self._articles = [];
+                //self._articles = response;
+				for(var i=0; i<response.length; i++){
+					console.log(response[i]);
+					self._articles[self._articles.length] = response[i];
+					console.log(self._articles.length);
+				}
                 self.display_pack();
             }
         );
@@ -53,7 +60,8 @@ var public_api = {
         var _currentCol = 0;
         $('#global_section').width(264*this._cols);
         //JSON.stringify(this._articles)
-        for(var i=0; i<this._articles.length; i++){
+		var starter =$('#global_section article').length;
+		for(var i=starter; i<starter+this._articles.length; i++){
             this._articles[i].width = this._ratio;
             this._articles[i].height = (this._articles[i].height*100)/this._ratio;
             this._articles[i].url = this.getImageUri(this._articles[i].url);
@@ -160,6 +168,7 @@ var public_api = {
                 _currentCol = 0;
             if(i > this._cols)
                 _currentCol = this.getHeight()[0].id;
+
         }
     },
     createPanoramic : function(article, target){

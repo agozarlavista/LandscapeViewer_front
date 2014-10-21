@@ -28,14 +28,14 @@ class Articles_Model extends CI_Model{
 
         if(isset($options['object'])){
             $tags = Array();
-            foreach(json_encode($options['object']).tags as $tag){
+            /*foreach(json_encode($options['object']).tags as $tag){
                 $this->load->model('feed_models/tags_model');
                 $tags[] = $this->tags_model->add(Array("label"=>$tag));
-            }
-            foreach($tags as $tag_id){
+            }*/
+            /*foreach($tags as $tag_id){
                 $this->load->model('feed_models/article_tags_model');
                 $this->article_tags_model->add(Array("article_id"=>$article_id, "tag_id"=>$tag_id));
-            }
+            }*/
         }
 
 		return  $article_id;
@@ -47,8 +47,9 @@ class Articles_Model extends CI_Model{
         return false;
     }
 	public function get($options){
-        $this->db->select("feed_articles.id as id, id_source, feed_articles.id_type as id_type, title, info_object, date, image_id, link, view, liked, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height, feed_sources.label, feed_sources.icon, feed_sources.description, source_media.url as source_icon");
-        if(isset($options['id']))
+        $this->db->select("feed_articles.id as id, feed_articles.id_source as id_source, feed_articles.id_type as id_type, title, info_object, date, image_id, link, view, liked, feed_media.url, feed_media.dominante, feed_media.width, feed_media.height, feed_sources.label, feed_sources.icon, feed_sources.description, source_media.url as source_icon");
+
+		if(isset($options['id']))
             $this->db->where('feed_articles.id', $options['id']);
         if(isset($options['link']))
             $this->db->where('link', $options['link']);
@@ -61,8 +62,8 @@ class Articles_Model extends CI_Model{
             }
         }
         $this->db->from('feed_articles');
-        //$this->db->where('feed_articles.id_type', 33);
-        //$this->db->or_where('feed_articles.id_type', 34);
+		//$this->db->where('id_source', 21);
+        //$this->db->or_where('feed_articles.id_type', 33);
         //$this->db->or_where('feed_articles.id_type', 35);
         //$this->db->or_where('feed_articles.id_type', 36);
         $this->db->order_by("id", "desc");
@@ -78,7 +79,9 @@ class Articles_Model extends CI_Model{
         $this->db->join('feed_media', 'feed_media.id = feed_articles.image_id');
         $this->db->join('feed_sources', 'feed_sources.id = feed_articles.id_source');
         $this->db->join('feed_media as source_media', 'source_media.id = feed_sources.icon');
+		//$this->db->where('id_source', 21);
         $result = $this->db->get();
+		//echo $this->db->last_query();
 		return $result->result_array();
     }
     public function add_like($options){

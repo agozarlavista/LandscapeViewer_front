@@ -118,8 +118,8 @@
 						<span><%= realDatas.videos.length %> médias supplémentaires</span>
 					</div>
 					<div class="line source">
-						<div class="logo"></div>
-						<div class="source_name"><%= description %></div>
+						<div class="logo" style="background-image:url(<%= source_icon %>);"></div>
+						<div class="source_name"><%= label %></div>
 					</div>
 					<div class="line publication_date">
 						<span>publié le <%= new Date(realDatas.publishedDate) %></span>

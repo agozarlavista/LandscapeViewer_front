@@ -26,6 +26,8 @@
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/article_view.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/navigation.js"></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/diaporama.js"></script>
+
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/helper/tag_manager.js"></script>
     <!-- lv utilities-->
     <script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/lv_ui.js"></script>
 

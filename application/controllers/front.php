@@ -32,7 +32,7 @@ class front extends CI_Controller {
         $data['rootURL'] = base_url();
         $this->load->view('_public_header', $data);
         $this->load->view('login', $data);
-        $this->load->view('_front_footer', $data);
+        $this->load->view('_public_footer', $data);
     }
 }
 

@@ -25,9 +25,10 @@ var articles = {
             setTimeout(function(){self.startUpdateArticles();},500);
             return;
         }
-        //console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
+        console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
-        //landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
+			console.log(response);
+       		//landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
             if(response.error){
                 self._current_update++;
                 setTimeout(function(){self.startUpdateArticles();},500);
@@ -47,62 +48,67 @@ var articles = {
         });
     },
     saveFeedArticles : function(){
+		console.log('saveFeedArticles');
         var self = this;
         self.saveArticle(self._current_article_list[self._current_article], function(e){
             if(this._current_article < self._current_article_list.length){
                 self.saveFeedArticles();
             }else{
-
+				//self._current_article = 0;
             }
         });
-        //this._current_article;
+        //this._current_article++;
     },
     saveArticle : function(Object, callBack){
-        //console.log("saveArticle");
-        //console.log(Object);
+        console.log("saveArticle");
+        console.log(Object);
         //return;
         var self = this;
         //ON CRée le thumb en premier
         var data_image = {
             "image_url" : Object.images[0]
         }
-        utilities.load_service("feed/get_article", {"link":Object.link}, function(e){
-            //response = JSON.parse(e);
-            response = e;
-            if(response.code != 200)
-                return;
-            if(response.data.length>0){
-                //console.log('already exist');
-                self.nextArticle();
-                return;
-            }
-            utilities.load_service("feed/save_image_from_web", data_image, function(reponse){
-                //console.log(reponse);
-                response = reponse;
-                if(typeof response.code == "undefined"){
-
-                }
-                if(parseInt(response.code) == 200){
-                    var params = {
-                        object : JSON.stringify(Object),
-                        id_type : self._urls_list[self._current_update].id_type,
-                        id_source : self._urls_list[self._current_update].id_source,
-                        date : new Date(Object.publishedDate).getTime(),
-                        image_id : response.id,
-                        tags : Object.tags,
-                        link : Object.link,
-                        title : Object.title
-                    }
-                    //console.log(params);
-                    //on ajoute l'article en base avec l'image_id
-                    utilities.load_service("feed/add_article", params, function(reponse){
-                        //console.log(self._current_article+" < "+self._current_article_list);
-                        self.nextArticle();
-                    });
-                }
-            });
+        utilities.load_service("feed/get_article", {"link":Object.link}, function(e) {
+			console.log(e);
+			//response = JSON.parse(e);
+			response = e;
+			/*if(response.code != 200)
+			 return;*/
+			if (response.length > 0) {
+				//console.log('already exist');
+				self.nextArticle();
+				return;
+			}
+			var params = {
+				object : JSON.stringify(Object),
+				id_type : self._urls_list[self._current_update].id_type,
+				id_source : self._urls_list[self._current_update].id_source,
+				date : new Date(Object.publishedDate).getTime(),
+				tags : Object.tags,
+				image_id : 0,
+				link : Object.link,
+				title : Object.title
+			}
+			if(Object.images.length>0){
+				utilities.load_service("feed/save_image_from_web", data_image, function (image_id) {
+					console.log('save_image_from_web : ', image_id);
+					params.image_id = image_id.toString();
+					console.log('params.image_id : ', params.image_id);
+					self.saveIt(params);
+				});
+			}else{
+				self.saveIt(params);
+			}
         });
     },
+	saveIt : function(params){
+		console.log('params : ', params);
+		var self = this;
+		utilities.load_service("feed/add_article", params, function(reponse){
+			console.log(self._current_article+" < "+self._current_article_list);
+			self.nextArticle();
+		});
+	},
     nextArticle : function(){
         var self = this;
         if(self._current_article < self._current_article_list.length-1){

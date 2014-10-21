@@ -5,6 +5,9 @@
     <script src="<?php echo base_url(); ?>js/landscape/utilities.js" type="text/javascript" ></script>
     <script src="<?php echo base_url(); ?>js/jquery.form.min.js" type="text/javascript" ></script>
 
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/landscape/helper/tag_manager.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-utilities/vendor/json2.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>js/backbone-utilities/vendor/underscore.js"></script>
     <?php
     if (isset($js)) {
         foreach($js as $js_src) {

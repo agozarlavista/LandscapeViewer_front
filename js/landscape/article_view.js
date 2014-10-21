@@ -3,7 +3,6 @@ var articleView = {
 	_article_scroll : null,
 	Diaporama : null,
     init : function(){
-		//alert('we are on an article page '+navigation.pageInfos.id);
 		var self = this;
 		utilities.load_service(
 			"feed/get_article",
@@ -16,13 +15,6 @@ var articleView = {
 				self.showArticleDatas();
 			}
 		);
-		/*for(var i=0; i<public_api._articles.length; i++){
-			if(public_api._articles[i].id == navigation.pageInfos.id){
-				this._articleInfos = public_api._articles[i];
-				this.showArticleDatas();
-				break;
-			}
-		}*/
     },
 	showArticleDatas : function(){
 		//alert(this._articleInfos.url);
@@ -78,13 +70,9 @@ var articleView = {
             function(response){
                 console.log("user panoramics  = ", response);
                 for(var i= 0; i<response.length; i++){
-                    //get_template('user_panoramic_list');
                     lv_ui.get_template({name:"panoramic_list_template", tagName : "li", attr:"", values:response[i], target:$('#user_panoramic_list')});
                 }
                 self.replaceAll();
-                //self._dropped_articles = null;
-                //self.closeDropZone();
-                //$('.panoramic_drop_zone .zone').html('p');
             }
         );
     },

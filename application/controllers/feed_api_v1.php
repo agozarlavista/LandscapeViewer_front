@@ -287,55 +287,60 @@ class Feed_Api_V1 extends CI_Controller {
         );
         $this->load->model('feed_models/medias_model');
         $result = $this->medias_model->add($options);
-        send_response($result,"400");
-        return;
+        send_response($result,"200");
+        //return;
     }
     public function save_image_thumb($img, $w, $imgName){
-        $filename = $img;
-        header('Content-Type: image/jpeg');
-        $img_name = basename($img);
-        list($width, $height) = getimagesize($filename);
-        $percent = ($w * 100)/$width;
+        try{
+			$filename = $img;
+			header('Content-Type: image/jpeg');
+			$img_name = basename($img);
+			list($width, $height) = getimagesize($filename);
+			$percent = ($w * 100)/$width;
 
-        $newwidth = $w;
-        $newheight = $height * ($percent/100);
+			$newwidth = $w;
+			$newheight = $height * ($percent/100);
 
-        $thumb = imagecreatetruecolor($newwidth, $newheight);
-        $source = "";
-        switch(exif_imagetype ( $filename ))
-        {
-            //allowed file types
-            case 1:
-                $source = imagecreatefromgif($filename);
-                break;
-            case 2:
-                $source = imagecreatefromjpeg($filename);
-                break;
-            case 3:
-                $source = imagecreatefrompng($filename);
-                break;
-            default:
-                die('Unsupported File!'); //output error
-        }
+			$thumb = imagecreatetruecolor($newwidth, $newheight);
+			$source = "";
+			switch(exif_imagetype ( $filename ))
+			{
+				//allowed file types
+				case 1:
+					$source = imagecreatefromgif($filename);
+					break;
+				case 2:
+					$source = imagecreatefromjpeg($filename);
+					break;
+				case 3:
+					$source = imagecreatefrompng($filename);
+					break;
+				default:
+					exit();
+					//die('Unsupported File!'); //output error
+			}
 
-        imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
+			imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-        $new_img_name = $imgName . '_' . $w;
-        //explode('.',basename($img))[0] . '_' . $w;
+			$new_img_name = $imgName . '_' . $w;
+			//explode('.',basename($img))[0] . '_' . $w;
 
-        $dirArray = str_split($new_img_name, 1);
-        if(! is_dir('./uploads/'.$dirArray[0] . "/"))
-            mkdir("./uploads/" . $dirArray[0] . "/", 0777);
-        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/"))
-            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/", 0777);
-        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/"))
-            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/", 0777);
-        if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/"))
-            mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/", 0777);
+			$dirArray = str_split($new_img_name, 1);
+			if(! is_dir('./uploads/'.$dirArray[0] . "/"))
+				mkdir("./uploads/" . $dirArray[0] . "/", 0777);
+			if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/"))
+				mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/", 0777);
+			if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/"))
+				mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/", 0777);
+			if(! is_dir('./uploads/'.$dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/"))
+				mkdir("./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/", 0777);
 
-        $UploadDirectory = "./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/";
+			$UploadDirectory = "./uploads/" . $dirArray[0] . "/" . $dirArray[1] . "/" . $dirArray[2] . "/" . $dirArray[3] . "/";
 
-        $new_img = imagepng($thumb, $UploadDirectory.$new_img_name.'.png');
+			$new_img = imagepng($thumb, $UploadDirectory.$new_img_name.'.png');
+		}catch(Exception $e){
+
+		}
     }
     public function add_article(){
         $options = $this->input->post();
