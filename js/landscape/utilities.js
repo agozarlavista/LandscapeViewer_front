@@ -39,20 +39,26 @@ var utilities = {
             },
             error: function(e) {
                 console.log("error : ", e);
-                if(JSON.parse(e.responseText).message){
-                    lv_ui.alert_component(
-                        {
-                            title:JSON.parse(e.responseText).title,
-                            message:JSON.parse(e.responseText).message,
-                            buttons:[
-                                {color:"red", label:"ok"}
-                            ]
-                        },
-                        function(e){
-                            //console.log(e);
-                        }
-                    );
-                }
+				try {
+					a=JSON.parse(e);
+				}catch(e){
+					callback({});
+					return false;
+				}
+				if(JSON.parse(e.responseText).message){
+					lv_ui.alert_component(
+						{
+							title:JSON.parse(e.responseText).title,
+							message:JSON.parse(e.responseText).message,
+							buttons:[
+								{color:"red", label:"ok"}
+							]
+						},
+						function(e){
+							//console.log(e);
+						}
+					);
+				}
                 // callback(JSON.parse(e.responseText));
             },
             always:function(e){

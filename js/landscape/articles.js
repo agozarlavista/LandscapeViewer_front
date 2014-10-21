@@ -91,9 +91,11 @@ var articles = {
 			}
 			if(Object.images.length>0){
 				utilities.load_service("feed/save_image_from_web", data_image, function (image_id) {
-					console.log('save_image_from_web : ', image_id);
-					params.image_id = image_id.toString();
-					console.log('params.image_id : ', params.image_id);
+					if(typeof image_id === "object") {
+						console.log('save_image_from_web : ', image_id);
+						params.image_id = image_id.toString();
+						console.log('params.image_id : ', params.image_id);
+					}
 					self.saveIt(params);
 				});
 			}else{
