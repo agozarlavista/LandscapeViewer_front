@@ -3,7 +3,7 @@ var articles = {
     _current_article : 0,
     _current_article_list : null,
     _urls_list : null,
-
+	_stopService : false,
 	init : function(){
         var self = this;
 	    utilities.load_service("feed/get_urls_list", {}, function(e){
@@ -19,15 +19,14 @@ var articles = {
         var self = this;
         //for tests http://www.lemonde.fr/rss/une.xml
         //self._urls_list[self._current_update].url
-        //"http://www.milkmagazine.net/feed/"
         if(self._current_update == self._urls_list.length-1){
             self._current_update = 0;
             setTimeout(function(){self.startUpdateArticles();},500);
             return;
         }
-        console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
+        //console.log("////////////////**********************///////////////////////"+self._urls_list[self._current_update].url)
         landscapeViewerFeed.loadPage(self._urls_list[self._current_update].url, function(response){
-			console.log(response);
+			//console.log(response);
        		//landscapeViewerFeed.loadPage("http://rss.lemonde.fr/c/205/f/3050/index.rss", function(response){
             if(response.error){
                 self._current_update++;
@@ -48,7 +47,7 @@ var articles = {
         });
     },
     saveFeedArticles : function(){
-		console.log('saveFeedArticles');
+		//console.log('saveFeedArticles');
         var self = this;
         self.saveArticle(self._current_article_list[self._current_article], function(e){
             if(this._current_article < self._current_article_list.length){
@@ -60,8 +59,8 @@ var articles = {
         //this._current_article++;
     },
     saveArticle : function(Object, callBack){
-        console.log("saveArticle");
-        console.log(Object);
+        //console.log("saveArticle");
+        //console.log(Object);
         //return;
         var self = this;
         //ON CRée le thumb en premier
@@ -69,7 +68,7 @@ var articles = {
             "image_url" : Object.images[0]
         }
         utilities.load_service("feed/get_article", {"link":Object.link}, function(e) {
-			console.log(e);
+			//console.log(e);
 			//response = JSON.parse(e);
 			response = e;
 			/*if(response.code != 200)
@@ -90,12 +89,11 @@ var articles = {
 				title : Object.title
 			}
 			if(Object.images.length>0){
+				console.log('save image');
 				utilities.load_service("feed/save_image_from_web", data_image, function (image_id) {
-					if(typeof image_id === "object") {
-						console.log('save_image_from_web : ', image_id);
-						params.image_id = image_id.toString();
-						console.log('params.image_id : ', params.image_id);
-					}
+					console.log('save_image_from_web : ', image_id);
+					params.image_id = image_id.toString();
+					console.log('params.image_id : ', params);
 					self.saveIt(params);
 				});
 			}else{
@@ -107,22 +105,27 @@ var articles = {
 		console.log('params : ', params);
 		var self = this;
 		utilities.load_service("feed/add_article", params, function(reponse){
-			console.log(self._current_article+" < "+self._current_article_list);
+			//console.log(self._current_article+" < "+self._current_article_list);
 			self.nextArticle();
 		});
 	},
     nextArticle : function(){
+		if(this._stopService)
+			return false;
         var self = this;
         if(self._current_article < self._current_article_list.length-1){
-            console.log("on passe à l'article suivant");
+            //console.log("on passe à l'article suivant");
             self._current_article++;
             self.saveFeedArticles();
         }else{
-            console.log('on a parcuru les articles du feed on passe au feed suivant');
+            //console.log('on a parcuru les articles du feed on passe au feed suivant');
             self._current_update++;
             setTimeout(function(){self.startUpdateArticles();},500);
         }
     },
+	stop : function(){
+		this._stopService = true;
+	},
     short : function(str){
         if(str.length > 20)
             str = str.substr(0,20)+"...";

@@ -76,6 +76,7 @@ class Articles_Model extends CI_Model{
 				$this->db->limit($options['limit'], $options['start']);
 			}
         }
+		// or feed_media.id = 23
         $this->db->join('feed_media', 'feed_media.id = feed_articles.image_id');
         $this->db->join('feed_sources', 'feed_sources.id = feed_articles.id_source');
         $this->db->join('feed_media as source_media', 'source_media.id = feed_sources.icon');

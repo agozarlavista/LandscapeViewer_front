@@ -141,9 +141,9 @@ var landscapeViewerFeed = {
         this.callBack(this.searchList);
     },
     parseHTML :function(str){
-		console.log(str);
-		console.log($("<div/>").html(str).text());
-		console.log(_.escape(str));
+		//console.log(str);
+		//console.log($("<div/>").html(str).text());
+		//console.log(_.escape(str));
         return $("<div/>").html(str).text();
 
     },
